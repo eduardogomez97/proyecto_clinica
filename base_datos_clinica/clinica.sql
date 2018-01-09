@@ -29,17 +29,20 @@ CREATE TABLE IF NOT EXISTS `clinica`.`usuarios` (
   `nombre` VARCHAR(45) NOT NULL,
   `apellidos` VARCHAR(45) NOT NULL,
   `telefono` INT(9) NOT NULL,
-  `usuario` VARCHAR(45) NOT NULL,
+  `user` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
+  `tipo` VARCHAR(5) NOT NULL,
   PRIMARY KEY (`id_usuario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 CREATE UNIQUE INDEX `id_usuario_UNIQUE` ON `clinica`.`usuarios` (`id_usuario` ASC);
 
-CREATE UNIQUE INDEX `usuario_UNIQUE` ON `clinica`.`usuarios` (`usuario` ASC);
+CREATE UNIQUE INDEX `usuario_UNIQUE` ON `clinica`.`usuarios` (`user` ASC);
 CREATE UNIQUE INDEX `password_UNIQUE` ON `clinica`.`usuarios` (`password` ASC);
 
+INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
+VALUES ('1', 'Pepe', 'Gallego', '123456789', 'admin', 'admin', 'admin');
 
 -- -----------------------------------------------------
 -- Table `clinica`.`citas`
@@ -48,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `clinica`.`citas` (
   `numero` INT(11) NOT NULL AUTO_INCREMENT,
   `fecha` DATE NOT NULL,
   `motivo` VARCHAR(45) NOT NULL,
-  `hora` VARCHAR(45) NOT NULL,
+  `hora` time NOT NULL,
   `id_usuario` INT(11) NOT NULL,
   PRIMARY KEY (`numero`, `id_usuario`),
   CONSTRAINT `id_usuario`
