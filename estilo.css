@@ -1,0 +1,22 @@
+.centro {
+    
+    float: none;
+    margin: 0 auto;
+}
+
+span {
+    width: 100px;
+    display: inline-block;
+    align-items: left;
+    
+}
+
+. {
+    
+    border: 10px solid aqua;
+}
+
+#titulo{
+    
+    background-color: aqua;
+}

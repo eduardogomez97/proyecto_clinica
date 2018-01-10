@@ -1,38 +1,16 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="es">
   <head>
+    <title></title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrate</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilo.css">
   </head>
   <body>
       
-      <?php if (!isset($_POST["user"])) : ?>
-
       
-        <form method="post">
-          
-            <span>Usuario</span>
-            <span><input name="user" required></span><br>
-            <span>Contraseña</span>
-            <span><input name="password" type="password" required></span><br>
-            <span>Nombre</span>
-            <span><input name="nombre" required></span><br>
-            <span>Apellidos</span>
-            <span><input name="apellidos" required></span><br>
-            <span>Telefono</span>
-            <span><input name="telefono" required></span><br>
-            
-            <p><input type="submit" value="Registrarse"></p>
-            
-            <input name="tipo" value="user" style="visibility:hidden;">
-        
-        </form>
-      
-      <?php else: ?>
-
-        <?php
+      <?php
 
        
              $connection = new mysqli("192.168.1.155", "root", "Admin2015", "clinica",3306);
@@ -43,7 +21,63 @@
               printf("Connection failed: %s\n", $connection->connect_error);
               exit();
           }
+      ?>
+      
+      <?php if (!isset($_POST["user"])) : ?>
 
+      
+     <div class="container">
+         
+         <center>
+             
+                <div class="row ">        
+
+                            <div id="titulo" class="col-md-6 centro" >
+
+                                    <h1>Clinica Dental Gallego</h1>
+
+                            </div>
+
+</div>
+
+                <div class="row">    
+
+                        <form method="post">
+
+                            <span>Usuario</span>
+                            <span><input name="user" required></span><br>
+                            <span>Contraseña</span>
+                            <span><input name="password" type="password" required></span><br>
+                            <span>Nombre</span>
+                            <span><input name="nombre" required></span><br>
+                            <span>Apellidos</span>
+                            <span><input name="apellidos" required></span><br>
+                            <span>Telefono</span>
+                            <span><input name="telefono" required></span><br>
+
+                            <input name="tipo" value="user" style="visibility:hidden;">
+
+
+
+                        </form>
+</div>
+
+                <div class="row">
+            
+                    <p><input type="submit" value="Registrarse"></p> 
+                </div>
+         
+         </center> 
+         
+      </div>     
+
+      
+      <?php else: ?>
+    
+    <?php
+        
+
+        
         $user = $_POST["user"];
         $password = $_POST["password"];
         $nombre = $_POST["nombre"];
@@ -51,23 +85,35 @@
         $telefono = $_POST["telefono"];
         $tipo = $_POST["tipo"];
 
-        $query = "INSERT INTO usuarios (id_usuario,nombre,apellidos,telefono,user,password,tipo)
-        VALUES ( null,'$nombre','$apellidos','$telefono','$user','$password','$tipo')";
-
-        if ($connection->query($query)) {
-
-          echo "¡ESTAS REGISTRADO!. <br>";
+        $query= "select * from usuarios where user ='$user'";
+      
+        if ($result = $connection->query($query)) {
             
-          } else {
-          echo "ERROR AL REGISTRARTE. <br>";
-        }
+            if ($result -> num_rows==1) {
+                
+                echo "EL USUARIO YA EXISTE";
+            } else {
+                
+                 $query = "INSERT INTO usuarios (nombre,apellidos,telefono,user,password,tipo)
+                 VALUES ('$nombre','$apellidos','$telefono','$user','$password','$tipo')";
 
+                if ($connection->query($query)) {
+
+                      header("Location: user/index.php");
+
+                } else {
+
+                            echo "ERROR AL REGISTRARTE. <br>";
+                  }
+
+                }
+            }
 
         ?>
 
-      <a href="login.php">Volver</a>
-      
       <?php endif ?>
+             
+            
 
   </body>
 </html>

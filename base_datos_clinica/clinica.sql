@@ -39,7 +39,6 @@ DEFAULT CHARACTER SET = latin1;
 CREATE UNIQUE INDEX `id_usuario_UNIQUE` ON `clinica`.`usuarios` (`id_usuario` ASC);
 
 CREATE UNIQUE INDEX `usuario_UNIQUE` ON `clinica`.`usuarios` (`user` ASC);
-CREATE UNIQUE INDEX `password_UNIQUE` ON `clinica`.`usuarios` (`password` ASC);
 
 INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
 VALUES ('1', 'Pepe', 'Gallego', '123456789', 'admin', 'admin', 'admin');
@@ -133,3 +132,4 @@ CREATE UNIQUE INDEX `id_empleado_UNIQUE` ON `clinica`.`atender` (`id_empleado` A
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
