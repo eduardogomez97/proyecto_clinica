@@ -13,7 +13,7 @@
       <?php
 
        
-             $connection = new mysqli("192.168.1.155", "root", "Admin2015", "clinica",3306);
+             $connection = new mysqli("127.0.0.1", "root", "Admin2015", "clinica",3306);
              $connection->set_charset("uft8");
 
           
