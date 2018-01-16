@@ -64,7 +64,7 @@
 
                 <div class="row">
             
-                    <p><input type="submit" value="Registrarse"></p> 
+                    <p><input type="submit" value="Registrarse">    <a href="login.php">Volver</a></p> 
                 </div>
          
          </center> 

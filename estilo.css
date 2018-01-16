@@ -11,12 +11,13 @@ span {
     
 }
 
-. {
+.mensaje_error {
     
-    border: 10px solid aqua;
+    color: red;
 }
 
 #titulo{
     
     background-color: aqua;
 }
+
