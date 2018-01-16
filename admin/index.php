@@ -28,26 +28,26 @@
       
       <div class="container">
           
-          <center>
-          
           <div class="row ">        
               
                     <div id="titulo" class="col-md-12 centro" >
           
+                        <center>
                             <h1>Clinica Dental Gallego</h1>
+                        </center>    
           
                     </div>
               
           </div>
-          </center>  
           <div class="row">
           
-              <div id="rutas" class="">
+              <div class="rutas">
 
                   <ul>
                       <li><a href="clientes.php">Lista de clientes</a></li>
                       <li><a href="facturas.php">Facturas</a></li>
-                      <li><a href="clientes.php">Empleados</a></li>
+                      <li><a href="citas.php">Citas</a></li>
+                      <li><a href="empleadps.php">Empleados</a></li>
                     </ul>    
                     
                     <?php if (isset($_POST["user"])) {
@@ -94,19 +94,6 @@
                 </div>
               
           </div>
-          <div class="row">
-          
-              <div id="registrarse" class="col-md-6 centro">
-                    
-                  
-                    <p>¿Aun no te has registrado?</p>
-                    <p><a href='registrarse.php'><input type="submit" value="Registrarse"></a></p>
-                  
-                </div>    
-          
-          </div>
-
-        </center>
        
     </div>
 

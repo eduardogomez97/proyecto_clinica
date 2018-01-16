@@ -73,8 +73,7 @@
 
       
       <?php else: ?>
-    
-    <?php
+                    <?php
         
 
         
@@ -111,9 +110,10 @@
 
         ?>
 
+
       <?php endif ?>
              
-            
+
 
   </body>
 </html>
