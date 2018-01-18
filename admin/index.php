@@ -1,6 +1,15 @@
 <?php
+
   session_start();
-?>
+  if ($_SESSION["user"] == 'admin') {
+
+  } else {
+      
+    session_destroy();
+    header("Location: ../login.php");
+      
+  }
+ ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -28,73 +37,50 @@
       
       <div class="container">
           
-          <div class="row ">        
+          <div class="row">        
               
+                    
                     <div id="titulo" class="col-md-12 centro" >
           
                         <center>
-                            <h1>Clinica Dental Gallego</h1>
+                           <h1>Clinica Dental Gallego</h1>
                         </center>    
           
                     </div>
+                     
               
-          </div>
-          <div class="row">
+          </div>      
           
-              <div class="rutas">
-
-                  <ul>
-                      <li><a href="clientes.php">Lista de clientes</a></li>
-                      <li><a href="facturas.php">Facturas</a></li>
-                      <li><a href="citas.php">Citas</a></li>
-                      <li><a href="empleadps.php">Empleados</a></li>
-                    </ul>    
-                    
-                    <?php if (isset($_POST["user"])) {
-
-                            $consulta="select * from usuarios where
-                            user='".$_POST["user"]."' and password='".$_POST{"password"}."'";
-
-                            if ($result = $connection->query($consulta)) {
-
-                            if ($result->num_rows===0) {
-
-                                echo "LOGIN INVALIDO";
-
-                            } else {
-
-                                 while($obj = $result->fetch_object()) {
-
-                                    $tipo = $obj->tipo;
-
-                                }
-
-
-                                $_SESSION["user"]=$_POST["user"];
-
-                                    if ($tipo == 'admin') {
-
-                                        header("Location: admin/index.php");
-
-                                    } 
-
-                                    elseif ($tipo == 'user') {
-
-                                        header("Location: user/index.php");
-
-                                    }
-                                }
-
-                        }       
-                            else {
-                            echo "Wrong Query";
-                        }
-
-                    } ?>
-                </div>
+          <nav class="navbar navbar-inverse">
               
-          </div>
-       
+              <div class="container-fluid">
+                  
+                <div class="navbar-header">
+                    
+                  <a class="navbar-brand" href="index.php">Inicio</a>
+                    
+                </div>
+                <ul class="nav navbar-nav">
+                  <li><a href="clientes.php">Lista de clientes</a></li>
+                  <li><a href="facturas.php">Facturas</a></li>
+                  <li><a href="citas.php">Citas</a></li>
+                  <li><a href="empleados.php">Empleados</a></li>
+                    </ul>    
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><buttom class="glyphicon glyphicon-user"></buttom> Mi perfil</a></li>
+                    <li><a href="logout.php"><buttom class="glyphicon glyphicon-log-in"></buttom> Cerrar sesion</a></li>
+                </ul>
+                <form class="navbar-form navbar-left" action="/action_page.php">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>  
+              </div>
+            </nav> 
+          
+          
     </div>
 
 

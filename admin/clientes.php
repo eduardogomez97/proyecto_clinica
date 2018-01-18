@@ -1,6 +1,15 @@
 <?php
+
   session_start();
-?>
+  if ($_SESSION["user"] == 'admin') {
+
+  } else {
+      
+    session_destroy();
+    header("Location: ../login.php");
+      
+  }
+ ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -54,15 +63,15 @@
                     
                 </div>
                 <ul class="nav navbar-nav">
-                  <li><a href="usuarios.php">Lista de clientes</a></li>
+                  <li><a href="clientes.php">Lista de clientes</a></li>
                   <li><a href="facturas.php">Facturas</a></li>
                   <li><a href="citas.php">Citas</a></li>
-                  <li><a href="empleadps.php">Empleados</a></li>
+                  <li><a href="empleados.php">Empleados</a></li>
                     </ul>    
-                </ul>
+                
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><buttom class="glyphicon glyphicon-user"></buttom> Sign Up</a></li>
-                    <li><a href="#"><buttom class="glyphicon glyphicon-log-in"></buttom> Login</a></li>
+                    <li><a href="#"><buttom class="glyphicon glyphicon-user"></buttom> Mi perfil</a></li>
+                    <li><a href="logout.php"><buttom class="glyphicon glyphicon-log-in"></buttom> Cerrar sesion</a></li>
                 </ul>
                 <form class="navbar-form navbar-left" action="/action_page.php">
                   <div class="form-group">

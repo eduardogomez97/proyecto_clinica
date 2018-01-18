@@ -38,7 +38,7 @@
 
                             </div>
 
-</div>
+                </div>
 
                 <div class="row">    
 
@@ -55,17 +55,10 @@
                             <span>Telefono</span>
                             <span><input name="telefono" required></span><br>
 
-                            <input name="tipo" value="user" style="visibility:hidden;">
-
-
-
+                            <p><input type="submit" value="Registrarse">    <a href="login.php">Volver</a></p> 
+                            
                         </form>
-</div>
-
-                <div class="row">
-            
-                    <p><input type="submit" value="Registrarse">    <a href="login.php">Volver</a></p> 
-                </div>
+                </div>               
          
          </center> 
          
@@ -73,9 +66,7 @@
 
       
       <?php else: ?>
-                    <?php
-        
-
+        <?php
         
         $user = $_POST["user"];
         $password = $_POST["password"];
@@ -86,6 +77,7 @@
 
         $query= "select * from usuarios where user ='$user'";
       
+      
         if ($result = $connection->query($query)) {
             
             if ($result -> num_rows==1) {
@@ -94,7 +86,7 @@
             } else {
                 
                  $query = "INSERT INTO usuarios (nombre,apellidos,telefono,user,password,tipo)
-                 VALUES ('$nombre','$apellidos','$telefono','$user','$password','$tipo')";
+                 VALUES ('$nombre','$apellidos','$telefono','$user','$password','user')";
 
                 if ($connection->query($query)) {
 

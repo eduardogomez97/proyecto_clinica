@@ -88,23 +88,26 @@
                       
                       <thead class="tabla_head">
                         <tr>
-                          <th>ID_FACTURAS </th>
-                          <th>CANTIDAD A PAGAR </th>
-                          <th>NUMERO DE CITA </th>
+                          <th>ID_EMPLEADO </th>
+                          <th>NOMBRE </th>
+                          <th>APELLIDOS </th>
+                          <th>TELEFONO </th>
                           <th>OPCIONES</th>
                         </tr>  
           </thead>
 
                       <?php 
                       
-                            $query="SELECT * from facturas";
+                            $query="select e.*, a.*  from empleados e 
+                                    join atender a on e.id_empleado = a.id_empleado;";
                             if ($result = $connection->query($query)) {
 
                                 while($obj = $result->fetch_object()) {
                                         echo "<tr>";
-                                        echo "<td>".$obj->id_factura."</a></td>";
-                                        echo "<td>".$obj->cantidad."</td>";
-                                        echo "<td>".$obj->numero."</td>";
+                                        echo "<td>".$obj->id_empleado."</a></td>";
+                                        echo "<td>".$obj->nombre."</td>";
+                                        echo "<td>".$obj->apellidos."</td>";
+                                        echo "<td>".$obj->telefono."</td>";
                                         echo "<td> 
 
                                             <a href='informe.php?id=".$obj->IdReparacion."'><img src='images/eye.png' width='20' height='20' /></a>
