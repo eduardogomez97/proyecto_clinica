@@ -39,7 +39,7 @@ include_once '../funciones.php';
           
           <?php
           titulo();
-          navegador();
+          navegador_admin();
           ?>
           
           

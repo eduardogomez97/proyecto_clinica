@@ -19,7 +19,7 @@ include_once '../funciones.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../estilo.css">
   </head>
   <body>
 
@@ -75,9 +75,9 @@ include_once '../funciones.php';
                                         echo "<td>".$obj->telefono."</td>";
                                         echo "<td> 
 
-                                            <a href='cliente/informe.php?id=".$obj->IdReparacion."'><img src='images/eye.png' width='20' height='20' /></a>
-                                            <a href='cliente/modificar.php?id=".$obj->IdReparacion."'><img src='images/person.png'width='20' height='20' /></a>
-                                            <a href='cliente/borrar.php?id=".$obj->IdReparacion."'><img src='images/croos.png' width='20' height='20' /></a>
+                                            <a href='cliente/informe.php?id_usuario=".$obj->id_usuario."'><img src='images/eye.png' width='20' height='20' /></a>
+                                            <a href='cliente/modificar.php?id_usuario=".$obj->id_usuario."'><img src='images/person.png'width='20' height='20' /></a>
+                                            <a href='cliente/borrar.php?id_usuario=".$obj->id_usuario."'><img src='images/croos.png' width='20' height='20' /></a>
 
 
 

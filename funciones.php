@@ -93,6 +93,33 @@ function navegador_user() {
     
 }
 
+function barra_informe(){
+    
+    echo "<nav class='navbar navbar-inverse'>
+              
+              <div class='container-fluid'>
+                  
+                <div class='navbar-header'>
+                    
+                  <a class='navbar-brand' href='index.php'>Inicio</a>
+                    
+                </div>
+                <ul class='nav navbar-nav'>
+                  <li><a href='clientes.php'>Lista de clientes</a></li>
+                  <li><a href='facturas.php'>Facturas</a></li>
+                  <li><a href='citas.php'>Citas</a></li>
+                  <li><a href='empleados.php'>Empleados</a></li>
+                    </ul>    
+                
+                <ul class='nav navbar-nav navbar-right'>
+                    <li><a href=''><buttom class='glyphicon glyphicon-user'></buttom>Mi perfil</a></li>
+                    <li><a href='logout.php'><buttom class='glyphicon glyphicon-log-in'></buttom> Cerrar sesion</a></li>
+                </ul>
+  
+              </div>
+            </nav>";
+}
+
 function shear() {
     
     echo"<form class='navbar-form navbar-left' action='/action_page.php'>
