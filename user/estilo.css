@@ -1,0 +1,37 @@
+.centro {
+    
+    float: none;
+    margin: 0 auto;
+}
+
+span {
+    width: 100px;
+    display: inline-block;
+    align-items: left;
+    
+}
+
+.rutas {
+    
+    border: 10px solid aqua;
+}
+
+.tabla {
+    
+    border: 1px solid black;
+    border-collapse: separate;
+    width: 100px;
+    height: 100px;
+}
+
+.tabla_head {
+    
+    background-color: aqua;
+    border: 1px solid black;
+}
+
+#titulo{
+    
+    background-color: aqua;
+}
+
