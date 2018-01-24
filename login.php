@@ -13,8 +13,6 @@
   <body>
 
       <?php  
-      
-            include(funciones.php);
      
             $connection = new mysqli("127.0.0.1", "root", "Admin2015", "clinica",3306);
             $connection->set_charset("uft8");
@@ -23,6 +21,7 @@
               printf("Connection failed: %s\n", $connection->connect_error);
               exit();
             }
+      
 
       ?>
       
@@ -30,7 +29,7 @@
           
           <center>
           
-          <div class="row ">        
+          <div class="row">        
               
                     <div id="titulo" class="col-md-6 centro" >
           
@@ -109,7 +108,6 @@
         </center>
        
     </div>
-
 
   </body>
 </html>

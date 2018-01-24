@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -21,6 +24,7 @@
               printf("Connection failed: %s\n", $connection->connect_error);
               exit();
           }
+      
       ?>
       
       <?php if (!isset($_POST["user"])) : ?>
@@ -104,8 +108,6 @@
 
 
       <?php endif ?>
-             
-
 
   </body>
 </html>

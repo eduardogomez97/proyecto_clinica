@@ -45,6 +45,5 @@ include_once '../funciones.php';
           
     </div>
 
-
   </body>
 </html>

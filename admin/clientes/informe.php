@@ -41,39 +41,34 @@ include_once '../../funciones.php';
         
       $id = $_GET['id_usuario'];
       
-      $query="SELECT u.*, c.* from usuarios u 
-            
-                join citas c on u.id_usuario = c.id_usuario where id_usuario = '".$id."'";
+      $query="SELECT * from usuarios u where id_usuario = '".$id."'";
       
       if ($result = $connection->query($query)) {
 
-                                while($obj = $result->fetch_object()) {
+                                 while($obj = $result->fetch_object()) {
                                        
                                         
                                        $user=$obj->user;
                                        $nombre=$obj->nombre;
                                        $apellidos=$obj->apellidos;
                                        $telefono=$obj->telefono;
-                                       $fecha=$obj->fecha;
-                                       $hora=$obj->hora;
-                                       $motivo=$obj->motivo;
-                                       $id_cita=$obj->numero;
-                                    
-                                    
+                                       
                                     
                                   }
+      }
       ?>
       
       <div class="container">
           
          <?php
           titulo();
+          barra_informe();
           ?>
           
           <form action="/html/tags/html_form_tag_action.cfm">
               
               <fieldset>
-                <img src="/pix/samples/9s.jpg" class="rounded-circle"> <br> 
+                <img src="../images/cliente/person.png" class="rounded-circle float-right" alt="Sample image"> <br> 
               </fieldset>
               
               <fieldset class="form-group">
@@ -84,8 +79,8 @@ include_once '../../funciones.php';
               </fieldset>
               
               <fieldset class="form-group">
-                    <label for="last_name">Apellidos</label>
-                    <label for="first_name"><?php echo $nombre; ?> </label>  
+                    <label for="last_name">Apellidos: </label>
+                    <label for="first_name"><?php echo $apellidos; ?> </label>  
               </fieldset>
               
               <fieldset class="form-group">
@@ -94,7 +89,8 @@ include_once '../../funciones.php';
               </fieldset>
               
               <fieldset class="form-group">
-                    <label for="last_name">Lista de todas sus citas</label>
+                    
+                  <label for="last_name">Lista de todas sus citas:</label>
                     
                     <div class="table table-responsive">
                   
@@ -102,20 +98,23 @@ include_once '../../funciones.php';
                       
                       <thead class="tabla_head">
                         <tr>
-                          <th>ID_CLIENTE </th>
-                          <th>USUARIO </th>
-                          <th>NOMBRE </th>
-                          <th>APELLIDOS </th>
-                          <th>TELEFONO </th>
-                          <th>OPCIONES</th>
+                          <th>ID_CITA </th>
+                          <th>FECHA </th>
+                          <th>HORA </th>
+                          <th>MOTIVO </th>
+                          <th>TOTAL A PAGAR(€) </th>
+                          <th>RESPONSABLE QUE LE HA ATENDIDO</th>
                         </tr>  
           </thead>
 
                       <?php 
                     
-                            $query="select c.*, u.* from citas c 
-                                    join usuarios u on c.id_usuario = u.id_usuario";
-                      
+                            $query="SELECT c.*, f.*, e.nombre, e.apellidos from citas c
+                                        join atender a on c.numero = a.numero_cita 
+                                        join empleados e on a.id_empleado = e.id_empleado
+                                        join facturas f on c.numero = f.numero
+                                        where c.id_usuario = '".$id."'";
+
                             if ($result = $connection->query($query)) {
 
                                 while($obj = $result->fetch_object()) {
@@ -124,17 +123,8 @@ include_once '../../funciones.php';
                                         echo "<td>".$obj->fecha."</td>";
                                         echo "<td>".$obj->hora."</td>";
                                         echo "<td>".$obj->motivo."</td>";
-                                        echo "<td>".$obj->apellidos.", ".$obj->nombre."</td>";
-                                      
-                                        echo "<td> QUIEN LE ATENDIO
-
-                                            <a href='informe.php?id=".$obj->IdReparacion."'><img src='images/eye.png' width='20' height='20' /></a>
-                                            <a href='modificar_cliente.php?id=".$obj->IdReparacion."'><img src='images/person.png'width='20' height='20' /></a>
-                                            <a href='borrar.php?id=".$obj->IdReparacion."'><img src='images/croos.png' width='20' height='20' /></a>
-
-
-
-                                        </td>";
+                                        echo "<td>".$obj->cantidad."</td>";
+                                        echo "<td><a href='.php?id=".$obj->id_empleado."'>".$obj->apellidos.", ".$obj->nombre."</a></td>";
                                       echo "</tr>";
                                   }
 
