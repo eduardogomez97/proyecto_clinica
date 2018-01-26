@@ -52,7 +52,6 @@ include_once '../funciones.php';
                       
                       <thead class="tabla_head">
                         <tr>
-                          <th>ID_CLIENTE </th>
                           <th>USUARIO </th>
                           <th>NOMBRE </th>
                           <th>APELLIDOS </th>
@@ -68,7 +67,6 @@ include_once '../funciones.php';
 
                                 while($obj = $result->fetch_object()) {
                                         echo "<tr>";
-                                        echo "<td>".$obj->id_usuario."</a></td>";
                                         echo "<td>".$obj->user."</td>";
                                         echo "<td>".$obj->nombre."</td>";
                                         echo "<td>".$obj->apellidos."</td>";

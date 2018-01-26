@@ -26,11 +26,6 @@ include_once '../../funciones.php';
 
       <?php  
 
-      if (empty($_GET)) {
-          echo "No tengo de la reparación";
-          exit();
-        }
-      
             $connection = new mysqli("127.0.0.1", "root", "Admin2015", "clinica",3306);
             $connection->set_charset("uft8");
       
@@ -39,16 +34,17 @@ include_once '../../funciones.php';
               exit();
             }
         
-      $id = $_GET['id_usuario'];
+      $id_emple = $_GET['id_empleado'];
+
+      $query="SELECT * from empleados u where id_empleado = '".$id_emple."'";
       
-      $query="SELECT * from usuarios u where id_usuario = '".$id."'";
+      echo $query;
       
       if ($result = $connection->query($query)) {
 
                                  while($obj = $result->fetch_object()) {
                                        
                                         
-                                       $user=$obj->user;
                                        $nombre=$obj->nombre;
                                        $apellidos=$obj->apellidos;
                                        $telefono=$obj->telefono;
@@ -90,7 +86,7 @@ include_once '../../funciones.php';
               
               <fieldset class="form-group">
                     
-                  <label for="last_name">Lista de todas sus citas:</label>
+                  <label for="last_name">Lista de todas sus citas a las que ha atendido:</label>
                     
                     <div class="table table-responsive">
                   
@@ -98,33 +94,32 @@ include_once '../../funciones.php';
                       
                       <thead class="tabla_head">
                         <tr>
-                          <th>ID_CITA </th>
                           <th>FECHA </th>
                           <th>HORA </th>
                           <th>MOTIVO </th>
                           <th>TOTAL A PAGAR(€) </th>
-                          <th>RESPONSABLE QUE LE HA ATENDIDO</th>
+                          <th>CLIENTE AL QUE HA ATENDIDO</th>
                         </tr>  
           </thead>
 
                       <?php 
                     
-                            $query="SELECT c.*, f.*, e.id_empleado, e.nombre, e.apellidos from citas c
-                                        join atender a on c.numero = a.numero_cita 
-                                        join empleados e on a.id_empleado = e.id_empleado
+                            $query="SELECT c.*, f.*, u.nombre, u.apellidos from empleados e
+                                        join atender a on e.id_empleado = a.id_empleado 
+                                        join citas c on a.numero_cita = c.numero
                                         join facturas f on c.numero = f.numero
+                                        join usuarios u on u.id_usuario = c.id_usuario
                                         where c.id_usuario = '".$id."'";
 
                             if ($result = $connection->query($query)) {
 
                                 while($obj = $result->fetch_object()) {
                                         echo "<tr>";
-                                        echo "<td>".$obj->numero."</a></td>";
                                         echo "<td>".$obj->fecha."</td>";
                                         echo "<td>".$obj->hora."</td>";
                                         echo "<td>".$obj->motivo."</td>";
                                         echo "<td>".$obj->cantidad."</td>";
-                                        echo "<td><a href='../empleados/informe.php?id=".$obj->id_empleado."'>".$obj->apellidos.", ".$obj->nombre."</a></td>";
+                                        echo "<td><a href='.php?id=".$obj->id_usuario."'>".$obj->apellidos.", ".$obj->nombre."</a></td>";
                                       echo "</tr>";
                                   }
 

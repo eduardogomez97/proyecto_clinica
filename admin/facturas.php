@@ -52,7 +52,6 @@ include_once '../funciones.php';
                       
                       <thead class="tabla_head">
                         <tr>
-                          <th>ID_FACTURAS </th>
                           <th>CANTIDAD A PAGAR </th>
                           <th>NUMERO DE CITA </th>
                           <th>OPCIONES</th>
@@ -66,7 +65,6 @@ include_once '../funciones.php';
 
                                 while($obj = $result->fetch_object()) {
                                         echo "<tr>";
-                                        echo "<td>".$obj->id_factura."</a></td>";
                                         echo "<td>".$obj->cantidad."</td>";
                                         echo "<td>".$obj->numero."</td>";
                                         echo "<td> 

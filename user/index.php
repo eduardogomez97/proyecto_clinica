@@ -41,32 +41,9 @@ include_once '../funciones.php';
           
           <?php
           titulo();
+          navegador_user();
           ?>
-          <nav class='navbar navbar-inverse'>
-              
-              <div class='container-fluid'>
-                  
-                <div class='navbar-header'>
-                    
-                  <a class='navbar-brand' href='index.php'>Inicio</a>
-                    
-                </div>
-                <ul class='nav navbar-nav'>
-                  <li><a href='clientes.php'>Pedir Cita</a></li>
-                  <li><a href='facturas.php'>Lista de tus citas</a></li>
-                  <li><a href='citas.php'>Tus Facturas</a></li>
-                  <li><a href=''>Sobre Nosotros</a></li>    
-                    
-                    </ul>    
-                
-                <ul class='nav navbar-nav navbar-right'>
-                    <li><a href=''><buttom class='glyphicon glyphicon-user'></buttom>Mi perfil</a></li>
-                    <li><a href='logout.php'><buttom class='glyphicon glyphicon-log-in'></buttom> Cerrar sesion</a></li>
-                </ul>
-  
-              </div>
-            </nav>
-
+         
           
     </div>
 

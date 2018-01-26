@@ -51,7 +51,6 @@ include_once '../funciones.php';
                       
                       <thead class="tabla_head">
                         <tr>
-                          <th>ID_EMPLEADO </th>
                           <th>NOMBRE </th>
                           <th>APELLIDOS </th>
                           <th>TELEFONO </th>
@@ -67,15 +66,14 @@ include_once '../funciones.php';
 
                                 while($obj = $result->fetch_object()) {
                                         echo "<tr>";
-                                        echo "<td>".$obj->id_empleado."</a></td>";
                                         echo "<td>".$obj->nombre."</td>";
                                         echo "<td>".$obj->apellidos."</td>";
                                         echo "<td>".$obj->telefono."</td>";
                                         echo "<td> 
 
-                                            <a href='informe.php?id=".$obj->IdReparacion."'><img src='images/eye.png' width='20' height='20' /></a>
-                                            <a href='modificar_cliente.php?id=".$obj->IdReparacion."'><img src='images/person.png'width='20' height='20' /></a>
-                                            <a href='borrar.php?id=".$obj->IdReparacion."'><img src='images/croos.png' width='20' height='20' /></a>
+                                           <a href='empleados/informe.php?id_usuario=".$obj->id_empleado."'><img src='images/eye.png' width='20' height='20' /></a>
+                                            <a href='empleados/modificar.php?id_usuario=".$obj->id_empleado."'><img src='images/person.png'width='20' height='20' /></a>
+                                            <a href='empleados/borrar.php?id_usuario=".$obj->id_empleado."'><img src='images/croos.png' width='20' height='20' /></a>
 
 
 

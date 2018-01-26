@@ -62,7 +62,9 @@ function navegador_admin() {
                     </ul>    
                 
                 <ul class='nav navbar-nav navbar-right'>
-                    <li><a href=''><buttom class='glyphicon glyphicon-user'></buttom>Mi perfil</a></li>
+                    <li><a href=''><buttom class='glyphicon glyphicon-user'></buttom> ";
+        echo $_SESSION['user'];
+            echo "</a></li>
                     <li><a href='logout.php'><buttom class='glyphicon glyphicon-log-in'></buttom> Cerrar sesion</a></li>
                 </ul>
   
@@ -73,7 +75,7 @@ function navegador_admin() {
 
 function navegador_user() {
     
-    echo "<nav class='navbar navbar-inverse'>
+    echo " <nav class='navbar navbar-inverse'>
               
               <div class='container-fluid'>
                   
@@ -83,20 +85,20 @@ function navegador_user() {
                     
                 </div>
                 <ul class='nav navbar-nav'>
-                  <li><a href='clientes.php'>Lista de clientes</a></li>
-                  <li><a href='facturas.php'>Facturas</a></li>
-                  <li><a href='citas.php'>Citas</a></li>
-                  <li><a href='empleados.php'>Empleados</a></li>
+                  <li><a href='clientes.php'>Pedir Cita</a></li>
+                  <li><a href='facturas.php'>Lista de tus citas</a></li>
+                  <li><a href='citas.php'>Tus Facturas</a></li>
+                  <li><a href=''>Sobre Nosotros</a></li>    
+                    
                     </ul>    
                 
                 <ul class='nav navbar-nav navbar-right'>
-                    <li><a href=''><buttom class='glyphicon glyphicon-user'></buttom>Mi perfil</a></li>
+                    <li><a href=''><buttom class='glyphicon glyphicon-user'></buttom>";echo $_SESSION['user'];echo "</a></li>
                     <li><a href='logout.php'><buttom class='glyphicon glyphicon-log-in'></buttom> Cerrar sesion</a></li>
                 </ul>
   
               </div>
-            </nav>";
-    
+            </nav>";   
 }
 
 function barra_informe(){
