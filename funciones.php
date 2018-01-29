@@ -56,7 +56,6 @@ function navegador_admin() {
                 </div>
                 <ul class='nav navbar-nav'>
                   <li><a href='clientes.php'>Lista de clientes</a></li>
-                  <li><a href='facturas.php'>Facturas</a></li>
                   <li><a href='citas.php'>Citas</a></li>
                   <li><a href='empleados.php'>Empleados</a></li>
                     </ul>    
@@ -86,8 +85,8 @@ function navegador_user() {
                 </div>
                 <ul class='nav navbar-nav'>
                   <li><a href='clientes.php'>Pedir Cita</a></li>
-                  <li><a href='facturas.php'>Lista de tus citas</a></li>
-                  <li><a href='citas.php'>Tus Facturas</a></li>
+                  <li><a href='citas.php'>Lista de tus citas</a></li>
+                  <li><a href='facturas.php'>Tus Facturas</a></li>
                   <li><a href=''>Sobre Nosotros</a></li>    
                     
                     </ul>    
@@ -114,7 +113,6 @@ function barra_informe(){
                 </div>
                 <ul class='nav navbar-nav'>
                   <li><a href='../clientes.php'>Lista de clientes</a></li>
-                  <li><a href='../facturas.php'>Facturas</a></li>
                   <li><a href='../citas.php'>Citas</a></li>
                   <li><a href='../empleados.php'>Empleados</a></li>
                     </ul>    

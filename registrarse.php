@@ -91,10 +91,11 @@
                 
                  $query = "INSERT INTO usuarios (nombre,apellidos,telefono,user,password,tipo)
                  VALUES ('$nombre','$apellidos','$telefono','$user','$password','user')";
+                
 
                 if ($connection->query($query)) {
 
-                      header("Location: user/index.php");
+                      header("Location: login.php");
 
                 } else {
 

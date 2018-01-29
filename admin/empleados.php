@@ -71,9 +71,9 @@ include_once '../funciones.php';
                                         echo "<td>".$obj->telefono."</td>";
                                         echo "<td> 
 
-                                           <a href='empleados/informe.php?id_usuario=".$obj->id_empleado."'><img src='images/eye.png' width='20' height='20' /></a>
-                                            <a href='empleados/modificar.php?id_usuario=".$obj->id_empleado."'><img src='images/person.png'width='20' height='20' /></a>
-                                            <a href='empleados/borrar.php?id_usuario=".$obj->id_empleado."'><img src='images/croos.png' width='20' height='20' /></a>
+                                           <a href='empleados/informe.php?id=".$obj->id_empleado."'><img src='images/eye.png' width='20' height='20' /></a>
+                                            <a href='empleados/modificar.php?id=".$obj->id_empleado."'><img src='images/person.png'width='20' height='20' /></a>
+                                            <a href='empleados/borrar.php?id=".$obj->id_empleado."'><img src='images/croos.png' width='20' height='20' /></a>
 
 
 

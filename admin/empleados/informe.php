@@ -16,7 +16,7 @@ include_once '../../funciones.php';
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>CLIENTES</title>
+    <title>EMPLEADO</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -34,11 +34,9 @@ include_once '../../funciones.php';
               exit();
             }
         
-      $id_emple = $_GET['id_empleado'];
+      $id_emple = $_GET['id'];
 
       $query="SELECT * from empleados u where id_empleado = '".$id_emple."'";
-      
-      echo $query;
       
       if ($result = $connection->query($query)) {
 
@@ -100,16 +98,16 @@ include_once '../../funciones.php';
                           <th>TOTAL A PAGAR(€) </th>
                           <th>CLIENTE AL QUE HA ATENDIDO</th>
                         </tr>  
-          </thead>
+                        </thead>
 
                       <?php 
+                        
                     
-                            $query="SELECT c.*, f.*, u.nombre, u.apellidos from empleados e
-                                        join atender a on e.id_empleado = a.id_empleado 
-                                        join citas c on a.numero_cita = c.numero
-                                        join facturas f on c.numero = f.numero
-                                        join usuarios u on u.id_usuario = c.id_usuario
-                                        where c.id_usuario = '".$id."'";
+                            $query="SELECT c.*, f.*, u.id_usuario ,u.nombre, u.apellidos from atender a 
+                                    join citas c on a.numero_cita = c.numero
+                                    join facturas f on c.numero = f.numero
+                                    join usuarios u on u.id_usuario = c.id_usuario
+                                    where id_empleado = '".$id_emple."'";
 
                             if ($result = $connection->query($query)) {
 
@@ -119,7 +117,7 @@ include_once '../../funciones.php';
                                         echo "<td>".$obj->hora."</td>";
                                         echo "<td>".$obj->motivo."</td>";
                                         echo "<td>".$obj->cantidad."</td>";
-                                        echo "<td><a href='.php?id=".$obj->id_usuario."'>".$obj->apellidos.", ".$obj->nombre."</a></td>";
+                                        echo "<td><a href='../clientes/informe.php?id_usuario=".$obj->id_usuario."'>".$obj->apellidos.", ".$obj->nombre."</a></td>";
                                       echo "</tr>";
                                   }
 

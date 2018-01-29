@@ -36,9 +36,9 @@ include_once '../../funciones.php';
               exit();
             }
         
-      $id = $_GET['id_usuario'];
+      $id = $_GET['id'];
       
-      $query="SELECT * from usuarios u where id_usuario = '".$id."'";
+      $query="SELECT * from empleados u where id_empleado = '".$id."'";
       
       if ($result = $connection->query($query)) {
 
@@ -89,9 +89,7 @@ include_once '../../funciones.php';
                 <input type='hidden' name='pass' value="<?php echo $pass; ?>"> 
                 <input type='hidden' name='user' value="<?php echo $user; ?>"> 
               
-                <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#flipFlop">Modificar</button>
-
-                    <!-- The modal -->
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#flipFlop">Modificar</button>
                     <div class="modal fade" id="flipFlop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -102,8 +100,6 @@ include_once '../../funciones.php';
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     </h4>
-                                    
-                                   
                                     
                                 </div>
                                 
@@ -120,7 +116,7 @@ include_once '../../funciones.php';
                             </div>
                         </div>
                     </div>
-                
+
               
           </form>
       </div>
@@ -142,15 +138,12 @@ include_once '../../funciones.php';
               exit();
             }
       
-        $query="Update usuarios SET 
-        id_usuario='".$_POST["id"]."',
+        $query="Update empleados SET 
+        id_empleado='".$_POST["id"]."',
         nombre='".$_POST["nombre"]."',
         apellidos='".$_POST["apellidos"]."',
-        telefono='".$_POST["telefono"]."',
-        user='".$_POST["user"]."',
-        password='".$_POST["pass"]."',
-        tipo='".$_POST["tipo"]."'
-        WHERE id_usuario='".$_POST["id"]."'";
+        telefono='".$_POST["telefono"]."'
+        WHERE id_empleado='".$_POST["id"]."'";
       
       
         if ($result = $connection->query($query)) {

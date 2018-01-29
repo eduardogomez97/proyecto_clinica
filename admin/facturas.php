@@ -54,7 +54,7 @@ include_once '../funciones.php';
                         <tr>
                           <th>CANTIDAD A PAGAR </th>
                           <th>NUMERO DE CITA </th>
-                          <th>OPCIONES</th>
+                          <th>AÑADIR FACTURA <img src='images/mas.jpg' width='20' height='20'/></th>
                         </tr>  
           </thead>
 
@@ -68,12 +68,6 @@ include_once '../funciones.php';
                                         echo "<td>".$obj->cantidad."</td>";
                                         echo "<td>".$obj->numero."</td>";
                                         echo "<td> 
-
-                                            <a href='informe.php?id=".$obj->IdReparacion."'><img src='images/eye.png' width='20' height='20' /></a>
-                                            <a href='modificar_cliente.php?id=".$obj->IdReparacion."'><img src='images/person.png'width='20' height='20' /></a>
-                                            <a href='borrar.php?id=".$obj->IdReparacion."'><img src='images/croos.png' width='20' height='20' /></a>
-
-
 
                                         </td>";
                                       echo "</tr>";

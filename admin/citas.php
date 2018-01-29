@@ -56,7 +56,7 @@ include_once '../funciones.php';
                           <th>HORA </th>
                           <th>MOTIVO</th>
                           <th>CLIENTE</th>
-                          <th>OPCIONES</th>
+                          <th>AÑADIR CITA <img src='images/mas.jpg' width='20' height='20'/></th>
                               
                         </tr>  
           </thead>
@@ -74,17 +74,9 @@ include_once '../funciones.php';
                                         echo "<td>".$obj->fecha."</td>";
                                         echo "<td>".$obj->hora."</td>";
                                         echo "<td>".$obj->motivo."</td>";
-                                        echo "<td>".$obj->apellidos.", ".$obj->nombre."</td>";
+                                        echo "<td><a href='clientes/informe.php?id_usuario=".$obj->id_usuario."'>".$obj->apellidos.", ".$obj->nombre."</td></a>";
                                       
-                                        echo "<td> 
-
-                                            <a href='informe.php?id=".$obj->IdReparacion."'><img src='images/eye.png' width='20' height='20' /></a>
-                                            <a href='modificar_cliente.php?id=".$obj->IdReparacion."'><img src='images/person.png'width='20' height='20' /></a>
-                                            <a href='borrar.php?id=".$obj->IdReparacion."'><img src='images/croos.png' width='20' height='20' /></a>
-
-
-
-                                        </td>";
+                                        echo "<td></td>";
                                       echo "</tr>";
                                   }
 

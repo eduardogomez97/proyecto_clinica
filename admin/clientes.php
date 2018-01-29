@@ -75,9 +75,8 @@ include_once '../funciones.php';
 
                                             <a href='clientes/informe.php?id_usuario=".$obj->id_usuario."'><img src='images/eye.png' width='20' height='20' /></a>
                                             <a href='clientes/modificar.php?id_usuario=".$obj->id_usuario."'><img src='images/person.png'width='20' height='20' /></a>
-                                            <a href='clientes/borrar.php?id_usuario=".$obj->id_usuario."'><img src='images/croos.png' width='20' height='20' /></a>
-
-
+                                            
+                                            <button type='button' class='btn btn-default' data-toggle='modal' data-target='#flipFlop'><img src='images/croos.png' width='20' height='20' /></a></button>
 
                                         </td>";
                                       echo "</tr>";
@@ -91,10 +90,29 @@ include_once '../funciones.php';
 
                   
                   </table>
-                  
-              </div>
               
+              <div class='modal fade' id='flipFlop' tabindex='-1' role='dialog' aria-labelledby='modalLabel' aria-hidden='true'>
+                    <div class='modal-dialog' role='document'>
+                        <div class='modal-content'>
+                            <div class='modal-header'>
+                                <h4 class='modal-title' id='modalLabel'>¿Estas seguro?</h4>
+                            </div>
+                            <div class='modal-body'>
+                                    Debes de estar seguro de querer modificar los datos del cliente porque esto puede afectar seriamente al sistema.
+                             </div>
+                            <div class='modal-footer'>
+                                    
+                                <button type='submit' class='btn btn-secondary' data-dismiss='modal'><a href='clientes/borrar.php?id_usuario=".$obj->id_usuario."'>Aceptar</a></button>
+                                <button type='button' class='btn btn-secondary' data-dismiss='modal'>No</button>
+                            </div>
+                        </div>
+                                
+                    </div>
+             </div>
+            </div>
+                  
       </div>
+
 
 
   </body>
