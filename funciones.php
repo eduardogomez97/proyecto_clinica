@@ -84,10 +84,10 @@ function navegador_user() {
                     
                 </div>
                 <ul class='nav navbar-nav'>
-                  <li><a href='clientes.php'>Pedir Cita</a></li>
+                  <li><a href='pedir_cita.php'>Pedir Cita</a></li>
                   <li><a href='citas.php'>Lista de tus citas</a></li>
                   <li><a href='facturas.php'>Tus Facturas</a></li>
-                  <li><a href=''>Sobre Nosotros</a></li>    
+                  <li><a href='nosotros.php'>Sobre Nosotros</a></li>    
                     
                     </ul>    
                 

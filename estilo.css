@@ -39,3 +39,9 @@ span {
     background-color: aqua;
     border: 1px solid black;
 }
+
+.imagenes_card {
+    
+    height: 100px;
+    width: 100px;
+}
