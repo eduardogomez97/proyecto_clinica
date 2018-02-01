@@ -44,19 +44,24 @@ include_once '../funciones.php';
           <?php
           titulo();
           ?>
-          
-          <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: #e3f2fd;">
+          <div>
+            <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: #e3f2fd;">
               
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active">
                         <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
                       </li>
+                      
                       <li class="nav-item">
-                        <a class="nav-link" href='citas.php'>Lista de tus citas</a>
+                        <a class="nav-link" href='pedir_cita.php'>Pedir_cita</a>
+                      </li>
+                        
+                      <li class="nav-item">
+                        <a class="nav-link" href='mis_citas.php'>Lista de tus citas</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href='facturas.php'>Tus Facturas</a>
+                        <a class="nav-link" href='mis_facturas.php'>Tus Facturas</a>
                       </li>     
                       <li class="nav-item">
                         <a class="nav-link"href='nosotros.php'>Sobre Nosotros</a>
@@ -66,7 +71,7 @@ include_once '../funciones.php';
                     <ul class='nav navbar-nav navbar-right'>
                    
                     <li>
-                        <button type="button"><?php echo $_SESSION['user']; ?></button>
+                        <a href='mi_perfil.php'><button type="button"><?php echo $_SESSION['user']; ?></button></a>
                     </li>
                     
                     <li>
@@ -77,8 +82,31 @@ include_once '../funciones.php';
                       
                       
                   </div>
+              
             </nav>
-  
+          </div>  
+          
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="imagenes/clinica1.jpg" alt="Primera imagen">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="imagenes/clinica2.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="imagenes/clinica3.png" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+              </a>
+            </div>
           
           <div id="accordion">
               
@@ -137,42 +165,84 @@ include_once '../funciones.php';
               
             </div>
           
-          <div class="row">
-          
-                <div class="card col-md-4" style="width: 18rem;">
+          <footer class="page-footer center-on-small-only unique-color-dark pt-0" style="background-color: #97efff;">
 
-                    <img class="card-img-top imagenes_card" src="../imagenes/dental.jpg" alt="dental">
-                    <div class="card-body">
-                        <p class="card-text">Blanqueamiento dental.</p>
+            <div style="background-color: #6351ce;">
+                <div class="container">
+                    <!--Grid row-->
+                    <div class="row py-4 d-flex align-items-center">
+ 
+                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                            <h6 class="mb-0 white-text">¡Atento a nuestras redes sociales!</h6>
+                        </div>
+                        
+                        
+                        <div class="col-md-6 col-lg-7 text-center text-md-right">
+                            <!--Facebook-->
+                            <a class="icons-sm fb-ic ml-0"><i class="fa fa-facebook white-text mr-lg-4"> Facebook </i></a>
+                            <!--Twitter-->
+                            <a class="icons-sm tw-ic"><i class="fa fa-twitter white-text mr-lg-4"> Twitter </i></a>
+                            <!--Instagram-->
+                            <a class="icons-sm ins-ic"><i class="fa fa-instagram white-text mr-lg-4"> Instagram</i></a>
+                        </div>
+                        
+
                     </div>
-
-</div>
-
-                <div class="card col-md-4" style="width: 18rem;">
-
-                    <img class="card-img-top imagenes_card" src="../imagenes/dental.jpg" alt="dental">
-                    <div class="card-body">
-                        <p class="card-text">Blanqueamiento dental.</p>
-                    </div>
-
-</div>
-
-                <div class="card col-md-4" style="width: 18rem;">
-              
-                <img class="card-img-top imagenes_card" src="../imagenes/dental.jpg" alt="dental">
-                <div class="card-body">
-                    <p class="card-text">Blanqueamiento dental.</p>
+                    
                 </div>
-              
-            </div>  
-          
-    
-          </div>
-          
-          
+            </div>
+
+
+            <div class="container mt-5 mb-4 text-center text-md-left">
+                <div class="row mt-3">
+
+
+                    <div class="col-md-2 col-lg-4 col-xl-3 mb-r">
+                        <h6 class="title font-bold"><strong>Clinica Dental gallego</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>Dentistas especialistas. Un equipo de profesionales altamente cualificados le atenderá.</p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-r">
+                        <h6 class="title font-bold"><strong>Hotarios</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p><strong>Lunes a Jueves</strong></p>
+                        <p>Mañana: 09:30 - 13:30</p>
+                        <p>Tarde: 13:30 - 21:00</p>
+                        <p><strong>Viernes</strong></p>
+                        <p>Mañana: 09:30 - 13:30</p>
+                                
+                    </div>
+
+
+                    <div class="col-md-4 col-lg-3 col-xl-3">
+                        <h6 class="title font-bold"><strong>Contacto</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p><i class="fa fa-home mr-3"></i> Lora del rio, 41440, ES</p>
+                        <p><i class="fa fa-envelope mr-3"></i> clinica_dental@gallego.com</p>
+                        <p><i class="fa fa-phone mr-3"></i> + 34 639 866 860</p>
+                        <p><i class="fa fa-print mr-3"></i> + 34 123 456 789</p>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <div class="container-fluid">
+                    © 2017 Copyright: <a href="https://www.MDBootstrap.com"><strong> MDBootstrap.com</strong></a>
+                </div>
+            </div>
+
+
+        </footer>
+
+         
       </div>
 
-
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     
       
