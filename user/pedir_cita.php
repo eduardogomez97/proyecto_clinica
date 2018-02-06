@@ -22,6 +22,28 @@ include_once '../funciones.php';
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../js/bootstrap.min.js">  
     <link rel="stylesheet" href="../estilo.css">
+      
+    <style>
+
+        
+        body {
+            
+            background: url(../imagenes/dental.jpg);
+            display:flex;
+            align-items:center;
+            margin: auto;
+            background-repeat:no-repeat;
+            background-position:center center;
+            background-attachment:fixed;
+            -o-background-size: 100% 100%, auto;
+            -moz-background-size: 100% 100%, auto;
+            -webkit-background-size: 100% 100%, auto;
+            background-size: 100% 100%, auto;    
+                
+        }
+        
+    </style> 
+      
   </head>
   <body>
 
@@ -43,94 +65,78 @@ include_once '../funciones.php';
           
           <?php
           titulo();
+          navegador_user();
           ?>
-         <div>
-          <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: #e3f2fd;">
               
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href='mis_citas.php'>Lista de tus citas</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href='mis_facturas.php'>Tus Facturas</a>
-                      </li>     
-                      <li class="nav-item">
-                        <a class="nav-link"href='nosotros.php'>Sobre Nosotros</a>
-                      </li>
-                        
-                    </ul>
-                    <ul class='nav navbar-nav navbar-right'>
-                   
-                    <li>
-                        <a href='mi_perfil.php'><button type="button"><?php echo $_SESSION['user']; ?></button></a>
-                    </li>
-                    
-                    <li>
-                        <a href='logout.php'><button type="button">Cerrar sesion</button></a>
-                    </li>
-                        
-                </ul>
-                      
-                      
-                  </div>
-            </nav>
-         </div> 
-        
-         <div>
-          <form>
+          <div class="row">
               
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                  <label for="inputState">Motivo</label>
-                  <select id="inputState" class="form-control" name="motivo">
-                    
-                    <option selected>REVISION</option>
-                    <option>ODONTOPEDIATRÍA</option>
-                    <option>ORTODONCIA</option>
-                    <option>IMPLANTOLOGÍA/PERIODONCIA</option>
-                    <option>ESTÉTICA DENTAL</option>
-                    <option>ENDODONCIA</option>
-                    </select>
+            <footer class="page-footer center-on-small-only unique-color-dark pt-0">
+
+                <div class="container-fluid mt-5 mb-4 text-center text-md-left">
+                <div class="row mt-3">
+
+
+                    <div class="col-md-2 col-lg-4 col-xl-3 mb-r">
+                        <h6 class="title font-bold"><strong>Clinica Dental gallego</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>Para pedir cita puede ponerse en contacto con nuestros dentistas especialistas llamando a nuestro numero de contacto o mediante correo electronico.<br>
+                            Un equipo de profesionales altamente cualificados le atenderá.</p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-r">
+                        <h6 class="title font-bold"><strong>Horarios</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p><strong>Lunes a Jueves</strong></p>
+                        <p>Mañana: 09:30 - 13:30</p>
+                        <p>Tarde: 13:30 - 21:00</p>
+                        <p><strong>Viernes</strong></p>
+                        <p>Mañana: 09:30 - 13:30</p>
+                                
+                    </div>
+
+
+                    <div class="col-md-4 col-lg-3 col-xl-3">
+                        <h6 class="title font-bold"><strong>Contacto</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p><i class="fa fa-home mr-3"></i> Lora del rio, 41440, ES</p>
+                        <p><i class="fa fa-envelope mr-3"></i> clinica_dental@gallego.com</p>
+                        <p><i class="fa fa-phone mr-3"></i> + 34 639 866 860</p>
+                        <p><i class="fa fa-print mr-3"></i> + 34 123 456 789</p>
+                    </div>
+
+
                 </div>
-       
-                    
-                  
+            </div>
                 
-                  
-                <div class="col-md-5 mb-3">
-                  <label for="validationCustom02">Fecha</label>
-                  <input type="date" class="form-control" id="validationCustom02" placeholder="Last name" value="fecha" required>
-                </div>
-              </div>
+                <div class="container-fluid">
+                    
+                    <div class="row py-4 d-flex align-items-center">
+ 
+                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                            <h6 class="mb-0 white-text">¡Atento a nuestras redes sociales!</h6>
+                        </div>
+                        
+                        
+                        <div class="col-md-6 col-lg-7 text-center text-md-right">
+                            <!--Facebook-->
+                            <a class="icons-sm fb-ic ml-0"><i class="fa fa-facebook white-text mr-lg-4"> Facebook </i></a>
+                            <!--Twitter-->
+                            <a class="icons-sm tw-ic"><i class="fa fa-twitter white-text mr-lg-4"> Twitter </i></a>
+                            <!--Instagram-->
+                            <a class="icons-sm ins-ic"><i class="fa fa-instagram white-text mr-lg-4"> Instagram</i></a>
+                        </div>
+                        
 
-              <div class="row">
-                  
-                <div class="col-md-4 mb-3">
-                  <label>Elige una hora para su cita:</label>
-	               <input type="time" name="hora" max="21:30:00" min="09:30:00" step="1">
-
-                </div>  
-                <div class="col-md-2 mb-3">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="ma">
-                  <label class="form-check-label" for="inlineRadio1">Horario de Mañana</label>
+                    </div>
+                    
                 </div>
-                <div class="col-md-3 mb-3">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="ta">
-                  <label class="form-check-label" for="inlineRadio2">Horario de tarde</label>
-                </div>
-                  
-              </div>
-     
-              <button class="btn btn-primary" type="submit">¡Pedir Cita!</button>
+                
+            </footer>
               
-        </form> 
-         </div>  
+          </div>  
+         
       </div>
-
+     
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

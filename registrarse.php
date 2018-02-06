@@ -1,5 +1,5 @@
 <?php
-
+include_once 'funciones.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -7,8 +7,34 @@
     <title>REGISTRO</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/bootstrap.min.js">  
     <link rel="stylesheet" href="estilo.css">
+      <style>
+    
+        html, body {
+            
+            height: 100%;
+        }
+        
+        body {
+            
+            background: url(imagenes/dental.jpg);
+            display:flex;
+            align-items:center;
+            margin: auto;
+            background-repeat:no-repeat;
+            background-position:center center;
+            background-attachment:fixed;
+            -o-background-size: 100% 100%, auto;
+            -moz-background-size: 100% 100%, auto;
+            -webkit-background-size: 100% 100%, auto;
+            background-size: 100% 100%, auto;    
+                
+        }
+        
+    </style>  
+      
   </head>
   <body>
       
@@ -30,21 +56,15 @@
       <?php if (!isset($_POST["user"])) : ?>
 
       
-     <div class="container">
+     <div class="container-fluid">
          
-         <center>
+         <?php
+            titulo();
+         ?>
+                
+         <div class="row">
              
-                <div class="row ">        
-
-                            <div id="titulo" class="col-md-6 centro" >
-
-                                    <h1>Clinica Dental Gallego</h1>
-
-                            </div>
-
-                </div>
-
-                <div class="row">    
+             <div id="login" class="col-md-12">
 
                         <form method="post">
 
@@ -59,15 +79,13 @@
                             <span>Telefono</span>
                             <span><input name="telefono" required></span><br>
 
-                            <p><input type="submit" value="Registrarse">    <a href="login.php">Volver</a></p> 
+                            <p><center><input type="submit" value="Registrarse"><a href="login.php">Volver</a></center></p> 
                             
                         </form>
                 </div>               
-         
-         </center> 
-         
-      </div>     
-
+             </div>
+     </div>     
+        
       
       <?php else: ?>
         <?php

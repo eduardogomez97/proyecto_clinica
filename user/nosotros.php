@@ -67,59 +67,54 @@ include_once '../funciones.php';
           titulo();
           navegador_user();
           ?>
-         
+     
           <div class="row">
+              
+              <div class="container-fluid mt-5 mb-4 text-center text-md-left">
                   
-                  <table class="table table-striped">
-                      
-                      <thead>
-                        <tr>
-                          <th>NUMERO DE LA CITA </th>
-                          <th>FECHA </th>
-                          <th>HORA </th>
-                          <th>MOTIVO</th>
-                          <th>TOTAL A PAGAR(€) </th>    
-                          
-                        </tr>  
-          </thead>
+                <div class="row mt-3">
 
-                      <?php 
 
-                            $query="select f.cantidad, c.*, u.id_usuario from facturas f
-                                        join citas c on f.numero = c.numero
-                                        join usuarios u on c.id_usuario = u.id_usuario
-                                        where u.id_usuario ='".$_SESSION["id"]."'";
-                      
-                            if ($result = $connection->query($query)) {
+                    <div class="col-md-2 col-lg-4 col-xl-3 mb-r">
+                        <h6 class="title font-bold"><strong>¿Quienes somos?</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>.</p>
+                    </div>
 
-                                while($obj = $result->fetch_object()) {
-                                        echo "<tr>";
-                                        echo "<td>".$obj->numero."</a></td>";
-                                        echo "<td>".$obj->fecha."</td>";
-                                        echo "<td>".$obj->hora."</td>";
-                                        echo "<td>".$obj->motivo."</td>";
-                                        echo "<td>".$obj->cantidad."</td>";
-                                        echo "<td></td>";
-                                      echo "</tr>";
-                                  }
+                    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-r">
+                        <h6 class="title font-bold"><strong>¿Donde estamos?</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <div class="embed-responsive embed-responsive-16by9">
+                        
+                        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4483.471636026521!2d-6.004812444790272!3d37.3828979063186!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfb6bb621dc08a753!2sIES+Triana!5e0!3m2!1ses!2ses!4v1517921034626" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        
+                        </div>    
 
-                          $result->close();
-                          unset($obj);
-                          unset($connection);
-                      } 
-                    ?>
+                                
+                    </div>
 
+
+                    <div class="col-md-4 col-lg-3 col-xl-3">
+                        <h6 class="title font-bold"><strong>Nuestros datos</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p><i class="fa fa-home mr-3"></i> Lora del rio, 41440, ES</p>
+                        <p><i class="fa fa-envelope mr-3"></i> clinica_dental@gallego.com</p>
+                        <p><i class="fa fa-phone mr-3"></i> + 34 639 866 860</p>
+                        <p><i class="fa fa-print mr-3"></i> + 34 123 456 789</p>
+                    </div>
+
+
+                </div>
                   
-                  </table>
-          </div>          
-         
+              </div>      
+
+          </div>
+          
       </div>
      
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-    
-      
+   
   </body>
 </html>

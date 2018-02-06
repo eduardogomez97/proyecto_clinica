@@ -1,41 +1,14 @@
 <?php
-function conectar() {
-  
-            $connection = new mysqli("127.0.0.1", "root", "Admin2015", "clinica",3306);
-          $connection->set_charset("uft8");
-
-
-          
-          if ($connection->connect_errno) {
-              printf("Connection failed: %s\n", $connection->connect_error);
-              exit();
-          }
-}
-
-function estilo () {
-    
-    echo"<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script>";
-        
-    echo"<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>";
-    
-        echo"<script src='https://code.jquery.com/jquery-3.1.1.slim.min.js' integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n' crossorigin='anonymous'></script>";
-            
-       echo"<script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js' integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb' crossorigin='anonymous'></script>";
-    
-        echo"<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js' integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn' crossorigin='anonymous'></script>";
-    
-}
-
 function titulo(){
     
     echo "          <div class='row'>        
               
                     
-                    <div id='titulo' class='col-md-12 centro' >
+                    <div id='titulo' class='col-md-12' >
           
-                        <center>
-                           <h1>Clinica Dental Gallego</h1>
-                        </center>    
+                        
+                           <h1  style='text-align: center'>Clinica Dental Gallego</h1>
+                           
           
                     </div>
                      
@@ -74,30 +47,44 @@ function navegador_admin() {
 
 function navegador_user() {
     
-    echo " <nav class='navbar navbar-inverse'>
-              
-              <div class='container-fluid'>
-                  
-                <div class='navbar-header'>
-                    
-                  <a class='navbar-brand' href='index.php'>Inicio</a>
-                    
-                </div>
-                <ul class='nav navbar-nav'>
-                  <li><a href='pedir_cita.php'>Pedir Cita</a></li>
-                  <li><a href='citas.php'>Lista de tus citas</a></li>
-                  <li><a href='facturas.php'>Tus Facturas</a></li>
-                  <li><a href='nosotros.php'>Sobre Nosotros</a></li>    
-                    
-                    </ul>    
-                
-                <ul class='nav navbar-nav navbar-right'>
-                    <li><a href=''><buttom class='glyphicon glyphicon-user'></buttom>";echo $_SESSION['user'];echo "</a></li>
-                    <li><a href='logout.php'><buttom class='glyphicon glyphicon-log-in'></buttom> Cerrar sesion</a></li>
-                </ul>
-  
-              </div>
-            </nav>";   
+    echo "           <div class='row' >
+                            
+                                <nav class='navbar navbar-toggleable-md navbar-light bg-faded col-12'>
+
+                                  <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                                    <ul class='navbar-nav mr-auto'>
+                                      <li class='nav-item active'>
+                                        <a class='nav-link' href='index.php'>Inicio <span class='sr-only'>(current)</span></a>
+                                      </li>
+
+                                      <li class='nav-item'>
+                                        <a class='nav-link' href='pedir_cita.php'>Pedir cita</a>
+                                      </li>
+
+                                      <li class='nav-item'>
+                                        <a class='nav-link' href='mis_citas.php'>Lista de tus citas</a>
+                                      </li>     
+                                      <li class='nav-item'>
+                                        <a class='nav-link' href='nosotros.php'>Sobre Nosotros</a>
+                                      </li>
+
+                                    </ul>
+                                    <ul class='nav navbar-nav navbar-right'>
+                                   <li><a href='mi_perfil.php'><button type='button'></buttom> ";
+                        echo $_SESSION['user'];
+                            echo "</a></li>
+                                    <li>
+                                        <a href='logout.php'><button type='button'>Cerrar sesion</button></a>
+                                    </li>
+
+                                </ul>
+
+
+                                  </div>
+
+                            </nav>
+                             
+          </div>  ";   
 }
 
 function barra_informe(){
@@ -135,5 +122,6 @@ function shear() {
                   <button type='submit' class='btn btn-default'>Submit</button>
                 </form>";
 }
+
 ?>
 

@@ -1,5 +1,7 @@
 <?php
   session_start();
+  include_once 'funciones.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -7,8 +9,33 @@
     <title>CLINICA DENTAL GALLEGO</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/bootstrap.min.js">  
     <link rel="stylesheet" href="estilo.css">
+    <style>
+    
+        html, body {
+            
+            height: 100%;
+        }
+        
+        body {
+            
+            background: url(imagenes/dental.jpg);
+            display:flex;
+            align-items:center;
+            margin: auto;
+            background-repeat:no-repeat;
+            background-position:center center;
+            background-attachment:fixed;
+            -o-background-size: 100% 100%, auto;
+            -moz-background-size: 100% 100%, auto;
+            -webkit-background-size: 100% 100%, auto;
+            background-size: 100% 100%, auto;    
+                
+        }
+        
+    </style>  
   </head>
   <body>
 
@@ -25,28 +52,21 @@
 
       ?>
       
-      <div class="container">
+      <div class="container-fluid" style="margin: auto">
+
+          <?php
+          titulo();
+          ?>
           
-          <center>
-          
-          <div class="row">        
-              
-                    <div id="titulo" class="col-md-6 centro" >
-          
-                            <h1>Clinica Dental Gallego</h1>
-          
-                    </div>
-              
-          </div>
           <div class="row">
           
-              <div id="login" class="col-md-6 centro">
+              <div id="login" class="col-md-12">
             
                     <form action="login.php" method="post">
 
                         <p><span>Usuario:</span><input name="user" required></p>
                         <p><span>Contraseña:</span><input name="password" type="password" required></p>
-                        <p><input type="submit" value="Entrar"></p>
+                        <p><center><input type="submit" value="Entrar"></center></p>
                     </form>    
                     
                     <?php if (isset($_POST["user"])) {
@@ -58,18 +78,20 @@
 
                             if ($result->num_rows===0) {
 
-                                echo "<p class='mensaje_error'>Usuario o contraseña invalidos.</>";
+                                echo "<center><p class='mensaje_error'>Usuario o contraseña invalidos.</p></center>";
 
                             } else {
 
                                  while($obj = $result->fetch_object()) {
 
                                     $tipo = $obj->tipo;
+                                    $id= $obj->id_usuario;
 
                                 }
 
 
                                 $_SESSION["user"]=$_POST["user"];
+                                $_SESSION["id"]=$id;
 
                                     if ($tipo == 'admin') {
 
@@ -95,7 +117,7 @@
           </div>
           <div class="row">
           
-              <div id="registrarse" class="col-md-6 centro">
+              <div id="registrarse" class="col-md-12">
                     <center>
                   
                     <p>¿Aun no te has registrado?</p>
@@ -104,8 +126,6 @@
                 </div>    
           
           </div>
-
-        </center>
        
     </div>
 
