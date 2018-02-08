@@ -16,18 +16,17 @@ include_once '../../funciones.php';
 
       <?php  
 
-      $connection=conectar();
-                  
-            $id = $_GET['id_usuario'];
+      $connection=conectar();  
+            $id = $_GET['id_empleado'];
       
     
-            $sql="delete from usuarios where id_usuario= ".$id."";
+            $sql="delete from empleados where id_empleado= ".$id."";
       
             mysql_query($sql);
       
       if (mysqli_query($connection, $sql)) {
     
-           header('Location: ../clientes.php');
+           header('Location: ../empleados.php');
       
       } else {
             echo "Error deleting record: " . mysqli_error($conn);

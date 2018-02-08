@@ -35,24 +35,28 @@
                 
         }
         
+        .container-fluid {
+            
+            margin: auto; 
+            background-color: white;
+            -webkit-box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.79);
+            -moz-box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.79);
+            box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.79);
+            
+        }
+        
     </style>  
   </head>
   <body>
 
       <?php  
      
-            $connection = new mysqli("127.0.0.1", "root", "Admin2015", "clinica",3306);
-            $connection->set_charset("uft8");
-      
-            if ($connection->connect_errno) {
-              printf("Connection failed: %s\n", $connection->connect_error);
-              exit();
-            }
+      $connection=conectar();
       
 
       ?>
       
-      <div class="container-fluid" style="margin: auto">
+      <div class="container-fluid">
 
           <?php
           titulo();

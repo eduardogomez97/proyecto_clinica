@@ -1,4 +1,19 @@
 <?php
+
+function conectar() {
+
+            $connection = new mysqli("127.0.0.1", "root", "Admin2015", "clinica",3306);
+            $connection->set_charset("uft8");
+      
+            if ($connection->connect_errno) {
+              printf("Connection failed: %s\n", $connection->connect_error);
+              exit();
+            }
+    
+            return $connection;
+    
+}
+
 function titulo(){
     
     echo "          <div class='row'>        
@@ -18,30 +33,48 @@ function titulo(){
 
 function navegador_admin() {
     
-    echo "<nav class='navbar navbar-inverse'>
-              
-              <div class='container-fluid'>
-                  
-                <div class='navbar-header'>
-                    
-                  <a class='navbar-brand' href='index.php'>Inicio</a>
-                    
+    echo "<div class='row'>                 
+              <nav class='navbar navbar-toggleable-md navbar-light bg-faded col-12'>
+                <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                   <ul class='navbar-nav mr-auto'>
+                       
+                      <li class='nav-item active'>
+                           <a class='nav-link' href='index.php'>Inicio <span class='sr-only'>(current)</span></a>
+                      </li>
+
+                       <li class='nav-item'>
+                            <a class='nav-link' href='clientes.php'>Lista de clientes</a>
+                       </li>
+
+                       <li class='nav-item'>
+                             <a class='nav-link' href='citas.php'>Citas</a>
+                       </li>   
+                       
+                       <li class='nav-item'>
+                             <a class='nav-link' href='empleados.php'>Empleados</a>
+                       </li>
+                                        
+                   </ul>
+                                      
+                   <ul class='nav navbar-nav navbar-right'>
+                       
+                        <li>
+                            <a href='mi_perfil.php'>
+                                <button type='button'>";
+                        echo $_SESSION['user'];
+                            echo "
+                            </a>
+                        </li>
+                        <li>
+                             <a href='logout.php'><button type='button'>Cerrar sesion</button></a>
+                        </li>
+
+                    </ul>
+
+
                 </div>
-                <ul class='nav navbar-nav'>
-                  <li><a href='clientes.php'>Lista de clientes</a></li>
-                  <li><a href='citas.php'>Citas</a></li>
-                  <li><a href='empleados.php'>Empleados</a></li>
-                    </ul>    
-                
-                <ul class='nav navbar-nav navbar-right'>
-                    <li><a href=''><buttom class='glyphicon glyphicon-user'></buttom> ";
-        echo $_SESSION['user'];
-            echo "</a></li>
-                    <li><a href='logout.php'><buttom class='glyphicon glyphicon-log-in'></buttom> Cerrar sesion</a></li>
-                </ul>
-  
-              </div>
-            </nav>";
+            </nav>                  
+          </div> ";
     
 }
 
@@ -89,28 +122,49 @@ function navegador_user() {
 
 function barra_informe(){
     
-    echo "<nav class='navbar navbar-inverse'>
-              
-              <div class='container-fluid'>
-                  
-                <div class='navbar-header'>
-                    
-                  <a class='navbar-brand' href='../index.php'>Inicio</a>
-                    
+    echo "      
+          <div class='row'>                 
+              <nav class='navbar navbar-toggleable-md navbar-light bg-faded col-12'>
+                <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                   <ul class='navbar-nav mr-auto'>
+                       
+                      <li class='nav-item active'>
+                           <a class='nav-link' href='../index.php'>Inicio <span class='sr-only'>(current)</span></a>
+                      </li>
+
+                       <li class='nav-item'>
+                            <a class='nav-link' href='../clientes.php'>Lista de clientes</a>
+                       </li>
+
+                       <li class='nav-item'>
+                             <a class='nav-link' href='../citas.php'>Citas</a>
+                       </li>   
+                       
+                       <li class='nav-item'>
+                             <a class='nav-link' href='../empleados.php'>Empleados</a>
+                       </li>
+                                        
+                   </ul>
+                                      
+                   <ul class='nav navbar-nav navbar-right'>
+                       
+                        <li>
+                            <a href='mi_perfil.php'>
+                                <button type='button'>";
+                        echo $_SESSION['user'];
+                            echo "
+                            </a>
+                        </li>
+                        <li>
+                             <a href='logout.php'><button type='button'>Cerrar sesion</button></a>
+                        </li>
+
+                    </ul>
+
+
                 </div>
-                <ul class='nav navbar-nav'>
-                  <li><a href='../clientes.php'>Lista de clientes</a></li>
-                  <li><a href='../citas.php'>Citas</a></li>
-                  <li><a href='../empleados.php'>Empleados</a></li>
-                    </ul>    
-                
-                <ul class='nav navbar-nav navbar-right'>
-                    <li><a href=''><buttom class='glyphicon glyphicon-user'></buttom>Mi perfil</a></li>
-                    <li><a href='../logout.php'><buttom class='glyphicon glyphicon-log-in'></buttom> Cerrar sesion</a></li>
-                </ul>
-  
-              </div>
-            </nav>";
+            </nav>                  
+          </div> ";
 }
 
 function shear() {
@@ -121,6 +175,34 @@ function shear() {
                   </div>
                   <button type='submit' class='btn btn-default'>Submit</button>
                 </form>";
+}
+
+function select_clie() {
+    
+    $connection=conectar();
+    $query="select * from usuarios where id_usuario > 1 order by apellidos";
+        
+    if ($result = $connection->query($query)) {
+
+                                while($obj = $result->fetch_object()) {
+                                        echo "<option value=".$obj->id_usuario.">".$obj->apellidos.", ".$obj->nombre."</option>";
+                                  }
+ 
+    }
+}
+
+function select_emple(){
+    
+    $connection=conectar();
+    $query="select * from empleados order by apellidos";
+        
+    if ($result = $connection->query($query)) {
+
+                                while($obj = $result->fetch_object()) {
+                                        echo "<option value=".$obj->id_emple.">".$obj->apellidos.", ".$obj->nombre."</option>";
+                                  }
+ 
+    }
 }
 
 ?>

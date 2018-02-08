@@ -16,47 +16,62 @@ include_once '../funciones.php';
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>CITAS</title>
+    <title>Inicio</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/bootstrap.min.js">  
     <link rel="stylesheet" href="../estilo.css">
+      
+    <style>
+
+        
+        body {
+            
+            background: url(../imagenes/dental.jpg);
+            display:flex;
+            align-items:center;
+            margin: auto;
+            background-repeat:no-repeat;
+            background-position:center center;
+            background-attachment:fixed;
+            -o-background-size: 100% 100%, auto;
+            -moz-background-size: 100% 100%, auto;
+            -webkit-background-size: 100% 100%, auto;
+            background-size: 100% 100%, auto;    
+                
+        }
+        
+    </style> 
+      
   </head>
   <body>
 
       <?php  
-     
-            $connection = new mysqli("127.0.0.1", "root", "Admin2015", "clinica",3306);
-            $connection->set_charset("uft8");
-      
-            if ($connection->connect_errno) {
-              printf("Connection failed: %s\n", $connection->connect_error);
-              exit();
-            }
+            
+      $connection=conectar();
         
-      
       
       ?>
       
       <div class="container">
           
-          <?php
+         <?php
           titulo();
           navegador_admin();
-          ?> 
+          ?>
 
-          <div class="table-responsive ajuste">
+          <div class="row">
                   
-                  <table class="table">
-                      
-                      <thead class="tabla_head">
+                  <table class="table table-striped">
+                      <thead>
                         <tr>
                           <th>NUMERO DE LA CITA </th>
                           <th>FECHA </th>
                           <th>HORA </th>
                           <th>MOTIVO</th>
                           <th>CLIENTE</th>
-                          <th>AÑADIR CITA <img src='images/mas.jpg' width='20' height='20'/></th>
+                          <th>AÑADIR CITA <a href="citas/nueva_cita.php"><img src='images/mas.jpg' width='20' height='20'/></a></th>
                               
                         </tr>  
           </thead>
