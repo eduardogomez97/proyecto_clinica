@@ -26,8 +26,8 @@ USE `clinica` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `clinica`.`usuarios` (
   `id_usuario` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NOT NULL,
-  `apellidos` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(100) NOT NULL,
+  `apellidos` VARCHAR(200) NOT NULL,
   `telefono` INT(9) NOT NULL,
   `user` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
@@ -43,6 +43,18 @@ CREATE UNIQUE INDEX `usuario_UNIQUE` ON `clinica`.`usuarios` (`user` ASC);
 INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
 VALUES ('1', 'Pepe', 'Gallego', '123456789', 'admin', 'admin', 'admin');
 
+INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
+VALUES ('2', 'Eduardo', 'Gomez Paredes', '639866860', 'ryukedu', '2asirtriana', 'user');
+
+INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
+VALUES ('3', 'Felipe', 'Cabello Cañada', '654789321', 'SoyCaillou', '2asirtriana', 'user');
+
+INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
+VALUES ('4', 'Maria Jesus', 'Dominguez Perez', '123456789', 'majedope', '2asirtriana', 'user');
+
+INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
+VALUES ('5', 'Maria', 'Avila Fernandez', '987654321', 'mavife', '2asirtriana', 'user');
+
 -- -----------------------------------------------------
 -- Table `clinica`.`citas`
 -- -----------------------------------------------------
@@ -53,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `clinica`.`citas` (
   `hora` time NOT NULL,
   `id_usuario` INT(11) NOT NULL,
   PRIMARY KEY (`numero`, `id_usuario`),
-  CONSTRAINT `id_usuario`
+  CONSTRAINT
     FOREIGN KEY (`id_usuario`)
     REFERENCES `clinica`.`usuarios` (`id_usuario`)
     ON DELETE CASCADE
@@ -63,8 +75,24 @@ DEFAULT CHARACTER SET = latin1;
 
 CREATE UNIQUE INDEX `numero_UNIQUE` ON `clinica`.`citas` (`numero` ASC);
 
-CREATE UNIQUE INDEX `id_usuario_UNIQUE` ON `clinica`.`citas` (`id_usuario` ASC);
 
+INSERT INTO `clinica`.`citas` (`numero`, `fecha`, `motivo`, `hora`,`id_usuario`) 
+VALUES ('1', '2018-02-02', 'Revision', '10:00:00', '2');
+
+INSERT INTO `clinica`.`citas` (`numero`, `fecha`, `motivo`, `hora`,`id_usuario`) 
+VALUES ('2', '2018-02-02', 'Ortodoncia', '10:30:00', '2');
+
+INSERT INTO `clinica`.`citas` (`numero`, `fecha`, `motivo`, `hora`,`id_usuario`) 
+VALUES ('3', '2018-02-02', 'Revision aparatos', '11:30:00', '3');
+
+INSERT INTO `clinica`.`citas` (`numero`, `fecha`, `motivo`, `hora`,`id_usuario`) 
+VALUES ('4', '2018-02-02', 'Empaste', '12:00:00', '4');
+
+INSERT INTO `clinica`.`citas` (`numero`, `fecha`, `motivo`, `hora`,`id_usuario`) 
+VALUES ('5', '2018-02-02', 'Sacar muela del juicio', '12:20:00', '5');
+
+INSERT INTO `clinica`.`citas` (`numero`, `fecha`, `motivo`, `hora`,`id_usuario`) 
+VALUES ('6', '2018-02-02', 'Limpieza', '16:00:00', '5');
 
 -- -----------------------------------------------------
 -- Table `clinica`.`empleados`
@@ -80,6 +108,11 @@ DEFAULT CHARACTER SET = latin1;
 
 CREATE UNIQUE INDEX `id_empleado_UNIQUE` ON `clinica`.`empleados` (`id_empleado` ASC);
 
+INSERT INTO `clinica`.`empleados` (`id_empleado`, `nombre`, `apellidos`, `telefono`) 
+VALUES ('1', 'Inma', 'Morilla Viollanoma', '123456789');
+
+INSERT INTO `clinica`.`empleados` (`id_empleado`, `nombre`, `apellidos`, `telefono`) 
+VALUES ('2', 'Eduardo', 'Sivianes Tejero', '123456789');
 
 -- -----------------------------------------------------
 -- Table `clinica`.`facturas`
@@ -99,8 +132,23 @@ DEFAULT CHARACTER SET = latin1;
 
 CREATE UNIQUE INDEX `idfacturas_UNIQUE` ON `clinica`.`facturas` (`id_factura` ASC);
 
-CREATE UNIQUE INDEX `numero_UNIQUE` ON `clinica`.`facturas` (`numero` ASC);
+INSERT INTO `clinica`.`facturas` (`id_factura`, `cantidad`, `numero`) 
+VALUES ('1', '0', '1');
 
+INSERT INTO `clinica`.`facturas` (`id_factura`, `cantidad`, `numero`) 
+VALUES ('2', '80', '2');
+
+INSERT INTO `clinica`.`facturas` (`id_factura`, `cantidad`, `numero`) 
+VALUES ('3', '20', '3');
+
+INSERT INTO `clinica`.`facturas` (`id_factura`, `cantidad`, `numero`) 
+VALUES ('4', '40', '4');
+
+INSERT INTO `clinica`.`facturas` (`id_factura`, `cantidad`, `numero`) 
+VALUES ('5', '60', '5');
+
+INSERT INTO `clinica`.`facturas` (`id_factura`, `cantidad`, `numero`) 
+VALUES ('6', '20', '6');
 
 -- -----------------------------------------------------
 -- Table `clinica`.`atender`
@@ -124,10 +172,23 @@ ENGINE = InnoDB;
 
 CREATE UNIQUE INDEX `id_atender_UNIQUE` ON `clinica`.`atender` (`id_atender` ASC);
 
-CREATE UNIQUE INDEX `numero_UNIQUE` ON `clinica`.`atender` (`numero_cita` ASC);
+INSERT INTO `clinica`.`atender` (`id_atender`, `numero_cita`, `id_empleado`) 
+VALUES ('1', '1', '1');
 
-CREATE UNIQUE INDEX `id_empleado_UNIQUE` ON `clinica`.`atender` (`id_empleado` ASC);
+INSERT INTO `clinica`.`atender` (`id_atender`, `numero_cita`, `id_empleado`) 
+VALUES ('2', '2', '1');
 
+INSERT INTO `clinica`.`atender` (`id_atender`, `numero_cita`, `id_empleado`) 
+VALUES ('3', '3', '1');
+
+INSERT INTO `clinica`.`atender` (`id_atender`, `numero_cita`, `id_empleado`) 
+VALUES ('4', '4', '2');
+
+INSERT INTO `clinica`.`atender` (`id_atender`, `numero_cita`, `id_empleado`) 
+VALUES ('5', '5', '2');
+
+INSERT INTO `clinica`.`atender` (`id_atender`, `numero_cita`, `id_empleado`) 
+VALUES ('6', '6', '2');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
