@@ -97,7 +97,6 @@ include_once 'funciones.php';
         $nombre = $_POST["nombre"];
         $apellidos = $_POST["apellidos"];
         $telefono = $_POST["telefono"];
-        $tipo = $_POST["tipo"];
 
         $query= "select * from usuarios where user ='$user'";
       
@@ -126,6 +125,7 @@ include_once 'funciones.php';
             }
 
         ?>
+      
 
 
       <?php endif ?>

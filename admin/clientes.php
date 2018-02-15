@@ -69,7 +69,7 @@ include_once '../funciones.php';
                           <th>NOMBRE </th>
                           <th>APELLIDOS </th>
                           <th>TELEFONO </th>
-                          <th>OPCIONES</th>
+                            <th>AÑADIR CLIENTE<a href="clientes/nuevo_cliente.php"><img src='images/mas.jpg' width='20' height='20'/></a></th>
                         </tr>  
                     </thead>
 

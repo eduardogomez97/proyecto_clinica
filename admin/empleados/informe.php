@@ -112,7 +112,7 @@ include_once '../../funciones.php';
                           <th>FECHA </th>
                           <th>HORA </th>
                           <th>MOTIVO </th>
-                          <th>TOTAL A PAGAR(€) </th>
+                          <th>TOTAL COBRADO(€) </th>
                           <th>CLIENTE AL QUE HA ATENDIDO</th>
                         </tr>  
                         </thead>

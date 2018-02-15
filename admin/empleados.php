@@ -68,14 +68,13 @@ include_once '../funciones.php';
                           <th>NOMBRE </th>
                           <th>APELLIDOS </th>
                           <th>TELEFONO </th>
-                          <th>OPCIONES</th>
+                            <th>AÑADIR EMPLEADO<a href="empleados/nuevo_empleado.php"><img src='images/mas.jpg' width='20' height='20'/></a></th>
                         </tr>  
           </thead>
 
                       <?php 
                       
-                            $query="select e.*, a.*  from empleados e 
-                                    join atender a on e.id_empleado = a.id_empleado;";
+                            $query="select e.* from empleados e;";
                             if ($result = $connection->query($query)) {
 
                                 while($obj = $result->fetch_object()) {

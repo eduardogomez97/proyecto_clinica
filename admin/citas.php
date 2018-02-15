@@ -91,7 +91,10 @@ include_once '../funciones.php';
                                         echo "<td>".$obj->motivo."</td>";
                                         echo "<td><a href='clientes/informe.php?id_usuario=".$obj->id_usuario."'>".$obj->apellidos.", ".$obj->nombre."</td></a>";
                                       
-                                        echo "<td></td>";
+                                        echo "<td>
+                                            <a href='citas/borrar.php?numero=".$obj->numero."'><img src='images/croos.png' width='20' height='20'/></a>
+
+                                        </td>";
                                       echo "</tr>";
                                   }
 

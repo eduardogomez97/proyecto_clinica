@@ -199,7 +199,7 @@ function select_emple(){
     if ($result = $connection->query($query)) {
 
                                 while($obj = $result->fetch_object()) {
-                                        echo "<option value=".$obj->id_emple.">".$obj->apellidos.", ".$obj->nombre."</option>";
+                                        echo "<option value=".$obj->id_empleado.">".$obj->apellidos.", ".$obj->nombre."</option>";
                                   }
  
     }
