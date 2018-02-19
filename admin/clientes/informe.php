@@ -41,6 +41,10 @@ include_once '../../funciones.php';
             background-size: 100% 100%, auto;    
                 
         }
+        #imagen {
+            
+            width:25%;
+        }
         
     </style> 
       
@@ -79,9 +83,8 @@ include_once '../../funciones.php';
           
           <form action="/html/tags/html_form_tag_action.cfm">
               
-              <fieldset>
-                <img src="../images/cliente/person.png" class="rounded-circle float-right" alt="Sample image"> <br> 
-              </fieldset>
+
+                <img id="imagen" src="../../imagenes/dental.jpg" class="rounded-circle float-right" > <br> 
               
               <fieldset class="form-group">
                   
@@ -110,7 +113,7 @@ include_once '../../funciones.php';
                       
                       <thead>
                         <tr>
-                          <th>ID_CITA </th>
+
                           <th>FECHA </th>
                           <th>HORA </th>
                           <th>MOTIVO </th>
@@ -131,7 +134,7 @@ include_once '../../funciones.php';
 
                                 while($obj = $result->fetch_object()) {
                                         echo "<tr>";
-                                        echo "<td>".$obj->numero."</a></td>";
+
                                         echo "<td>".$obj->fecha."</td>";
                                         echo "<td>".$obj->hora."</td>";
                                         echo "<td>".$obj->motivo."</td>";

@@ -68,7 +68,7 @@ include_once 'funciones.php';
              
              <div id="login" class="col-md-12">
 
-                        <form method="post">
+                        <form enctype="multipart/form-data" action="__URL__" method="POST">
 
                             <span>Usuario</span>
                             <span><input name="user" required></span><br>
@@ -80,7 +80,9 @@ include_once 'funciones.php';
                             <span><input name="apellidos" required></span><br>
                             <span>Telefono</span>
                             <span><input name="telefono" required></span><br>
-
+                            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                            Foto de perfil: <input name="fichero_usuario" type="file" />
+                            
                             <p><center><input type="submit" value="Registrarse"><a href="login.php">Volver</a></center></p> 
                             
                         </form>

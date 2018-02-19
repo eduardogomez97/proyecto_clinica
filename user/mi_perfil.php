@@ -10,34 +10,62 @@
       
   }
 
+
 include_once '../funciones.php';
+
  ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>CLIENTES</title>
+    <title>Inicio</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../estilo.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/bootstrap.min.js">  
+    <link rel="stylesheet" href="../estilo.css">
+      
+    <style>
 
+        
+        body {
+            
+            background: url(../imagenes/dental.jpg);
+            display:flex;
+            align-items:center;
+            margin: auto;
+            background-repeat:no-repeat;
+            background-position:center center;
+            background-attachment:fixed;
+            -o-background-size: 100% 100%, auto;
+            -moz-background-size: 100% 100%, auto;
+            -webkit-background-size: 100% 100%, auto;
+            background-size: 100% 100%, auto;    
+                
+        }
+        #imagen {
+            
+            width:25%;
+        }
+        
+    </style> 
+      
+  </head>
+    <body>
       <?php  
 
       
       $connection=conectar();
         
+      $user = $_GET['user'];
       
-      $query="SELECT * from usuarios u where user = '".$_SESSION["user"]."'";
-
+      $query="SELECT * from usuarios u where user = '".$user."'";
       
       if ($result = $connection->query($query)) {
 
                                  while($obj = $result->fetch_object()) {
                                        
-                                        
-                                       
+                                       $id=$obj->id_usuario;    
+                                       $user=$obj->user;
                                        $nombre=$obj->nombre;
                                        $apellidos=$obj->apellidos;
                                        $telefono=$obj->telefono;
@@ -51,14 +79,13 @@ include_once '../funciones.php';
           
          <?php
           titulo();
-          barra_informe();
+          navegador_user();
           ?>
           
           <form action="/html/tags/html_form_tag_action.cfm">
               
-              <fieldset>
-                <img src="../images/cliente/person.png" class="rounded-circle float-right" alt="Sample image"> <br> 
-              </fieldset>
+
+                <img id="imagen" src="../imagenes/dental.jpg" class="rounded-circle float-right" > <br> 
               
               <fieldset class="form-group">
                   
@@ -81,20 +108,20 @@ include_once '../funciones.php';
                     
                   <label for="last_name">Lista de todas sus citas:</label>
                     
-                    <div class="table table-responsive">
+                  <div class="row">
                   
-                    <table class="table">
+                    <table class="table table-striped">
                       
-                      <thead class="tabla_head">
+                      <thead>
                         <tr>
-                          <th>ID_CITA </th>
+
                           <th>FECHA </th>
                           <th>HORA </th>
                           <th>MOTIVO </th>
                           <th>TOTAL A PAGAR(€) </th>
                           <th>RESPONSABLE QUE LE HA ATENDIDO</th>
                         </tr>  
-          </thead>
+                      </thead>
 
                       <?php 
                     
@@ -108,7 +135,7 @@ include_once '../funciones.php';
 
                                 while($obj = $result->fetch_object()) {
                                         echo "<tr>";
-                                        echo "<td>".$obj->numero."</a></td>";
+
                                         echo "<td>".$obj->fecha."</td>";
                                         echo "<td>".$obj->hora."</td>";
                                         echo "<td>".$obj->motivo."</td>";
@@ -131,10 +158,7 @@ include_once '../funciones.php';
             
         </form>
           
-          
-              
+             
       </div>
-
-
-  </body>
-</html>
+    </body>
+</html> 
