@@ -44,7 +44,7 @@ include_once '../funciones.php';
         }
         #imagen {
             
-            width:25%;
+            width:15%;
         }
         
     </style> 
@@ -69,6 +69,7 @@ include_once '../funciones.php';
                                        $nombre=$obj->nombre;
                                        $apellidos=$obj->apellidos;
                                        $telefono=$obj->telefono;
+                                       $foto=$obj->foto;
                                        
                                     
                                   }
@@ -84,8 +85,22 @@ include_once '../funciones.php';
           
           <form action="/html/tags/html_form_tag_action.cfm">
               
+              <?php
+              
+                if (!isset($_foto)) {
+                    
+                    echo "<img id='imagen' src='../imagenes/usuario.png' class='rounded-circle float-right' > <br>";
+                    
+                } else {
+                    
+                    echo "<img id='imagen' src='$foto' class='rounded-circle float-right' > <br>";
+                    
+                }
+                
+              
+              ?>
 
-                <img id="imagen" src="../imagenes/dental.jpg" class="rounded-circle float-right" > <br> 
+                
               
               <fieldset class="form-group">
                   

@@ -76,7 +76,7 @@
                     <?php if (isset($_POST["user"])) {
 
                             $consulta="select * from usuarios where
-                            user='".$_POST["user"]."' and password='".$_POST{"password"}."'";
+                            user='".$_POST["user"]."' and password='".md5($_POST["password"])."'";
 
                             if ($result = $connection->query($consulta)) {
 

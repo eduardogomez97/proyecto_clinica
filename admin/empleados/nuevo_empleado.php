@@ -53,7 +53,7 @@ include_once '../../funciones.php';
 
       ?>
 
-      <?php if (!isset($_POST["user"])) : ?>
+      <?php if (!isset($_POST["apellidos"])) : ?>
       
 
       
@@ -78,57 +78,45 @@ include_once '../../funciones.php';
                       <div class="col-12">
                           <input class="form-control" rows="1" name="apellidos">
                       </div>
-                       
-                      <label class="col-2 col-form-label">Usuario</label>
-                      <div class="col-12">
-                          <input class="form-control" rows="1" name="user">
-                      </div>
                     </div>
              </div>
              <div class="row">
-                 <div class="form-group">
-                      <label class="col-2 col-form-label">Contraseña</label>
-                      <div class="col-12">
-                          <input class="form-control" rows="1" name="password" type="password">
-                      </div>
-                        
+                 <div class="form-group">    
                       <label class="col-2 col-form-label">Telefono</label>
                       <div class="col-12">
                           <input class="form-control" rows="1" name="telefono">
                       </div>
                     </div> 
              </div>
-             <input type="submit" value="Agregar cliente">
+             <input type="submit" value="Agregar empleado">
           </form>
           
         
         <?php else: ?>
         <?php
         
-        $user = $_POST["user"];
-        $password = $_POST["password"];
         $nombre = $_POST["nombre"];
         $apellidos = $_POST["apellidos"];
         $telefono = $_POST["telefono"];
 
-        $query= "select * from usuarios where user ='$user' and nombre ='$nombre' and apellidos ='$apellidos'";
+        $query= "select * from empleados where nombre ='$nombre' and apellidos ='$apellidos'";
       
       
         if ($result = $connection->query($query)) {
             
             if ($result -> num_rows==1) {
                 
-                echo "EL USUARIO YA EXISTE";
+                echo "EL EMPLEADO YA EXISTE";
                 
             } else {
                 
-                 $query = "INSERT INTO usuarios (nombre,apellidos,telefono,user,password,tipo)
-                 VALUES ('$nombre','$apellidos','$telefono','$user',md5('$password'),'user')";
+                 $query = "INSERT INTO empleados (nombre,apellidos,telefono)
+                 VALUES ('$nombre','$apellidos','$telefono')";
                 echo $query;
 
                 if ($connection->query($query)) {
 
-                      header("Location: ../clientes.php");
+                      header("Location: ../empleados.php");
 
                 } else {
 

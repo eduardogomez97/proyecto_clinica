@@ -61,19 +61,15 @@ include_once '../funciones.php';
           ?>
      
           <div class="row">
-              
-              <div class="container-fluid mt-5 mb-4 text-center text-md-left">
-                  
-                <div class="row mt-3">
-
-
-                    <div class="col-md-2 col-lg-4 col-xl-3 mb-r">
-                        <h6 class="title font-bold"><strong>¿Quienes somos?</strong></h6>
-                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>.</p>
-                    </div>
-
-                    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-r">
+              <footer class="page-footer center-on-small-only unique-color-dark pt-0">
+                  <div class="container-fluid mt-5 mb-4 text-center text-md-left">
+                      <div class="row mt-3">
+                          <div class="col-md-2 col-lg-4 col-xl-3 mx-auto mb-r">
+                              <h6 class="title font-bold"><strong>¿Quienes somos?</strong></h6>
+                              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                              <p>Nuestras instalaciones ocupan un espacio nuevo, pensado y diseñado para que nuestros pacientes se sientan cómodos y relajados.<br><br>Nuestro objetivo principal es cuidar de la salud bucodental de nuestros pacientes. Por ello cada día trabajamos utilizando las técnicas más avanzadas para conseguir sonrisas sanas, bonitas y satisfechas.</p>
+                          </div>
+                          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-r">
                         <h6 class="title font-bold"><strong>¿Donde estamos?</strong></h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <div class="embed-responsive embed-responsive-16by9">
@@ -84,22 +80,16 @@ include_once '../funciones.php';
 
                                 
                     </div>
-
-
-                    <div class="col-md-4 col-lg-3 col-xl-3">
+                          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-r">
                         <h6 class="title font-bold"><strong>Nuestros datos</strong></h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <p><i class="fa fa-home mr-3"></i> Lora del rio, 41440, ES</p>
                         <p><i class="fa fa-envelope mr-3"></i> clinica_dental@gallego.com</p>
                         <p><i class="fa fa-phone mr-3"></i> + 34 639 866 860</p>
-                        <p><i class="fa fa-print mr-3"></i> + 34 123 456 789</p>
                     </div>
-
-
-                </div>
-                  
-              </div>      
-
+                      </div>
+                  </div>
+              </footer>
           </div>
           
       </div>

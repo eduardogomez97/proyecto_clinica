@@ -55,7 +55,7 @@ include_once 'funciones.php';
       
       ?>
       
-      <?php if (!isset($_POST["user"])) : ?>
+      
 
       
      <div class="container-fluid">
@@ -63,12 +63,13 @@ include_once 'funciones.php';
          <?php
             titulo();
          ?>
+         <?php if (!isset($_POST["user"])) : ?>
                 
          <div class="row">
              
              <div id="login" class="col-md-12">
 
-                        <form enctype="multipart/form-data" action="__URL__" method="POST">
+                        <form enctype="multipart/form-data" method="POST">
 
                             <span>Usuario</span>
                             <span><input name="user" required></span><br>
@@ -80,8 +81,7 @@ include_once 'funciones.php';
                             <span><input name="apellidos" required></span><br>
                             <span>Telefono</span>
                             <span><input name="telefono" required></span><br>
-                            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-                            Foto de perfil: <input name="fichero_usuario" type="file" />
+                            Foto de perfil: <input name="image" type="file" />
                             
                             <p><center><input type="submit" value="Registrarse"><a href="login.php">Volver</a></center></p> 
                             
@@ -94,39 +94,63 @@ include_once 'funciones.php';
       <?php else: ?>
         <?php
         
-        $user = $_POST["user"];
-        $password = $_POST["password"];
-        $nombre = $_POST["nombre"];
-        $apellidos = $_POST["apellidos"];
-        $telefono = $_POST["telefono"];
+                $tmp_file = $_FILES['image']['tmp_name'];
+                
+                $target_dir = "imagenes/";
+               
+                $target_file = strtolower($target_dir . basename($_FILES['image']['name']));
+               
+                $valid= true;
 
-        $query= "select * from usuarios where user ='$user'";
-      
-      
-        if ($result = $connection->query($query)) {
-            
-            if ($result -> num_rows==1) {
-                
-                echo "EL USUARIO YA EXISTE";
-            } else {
-                
-                 $query = "INSERT INTO usuarios (nombre,apellidos,telefono,user,password,tipo)
-                 VALUES ('$nombre','$apellidos','$telefono','$user','$password','user')";
                 
 
-                if ($connection->query($query)) {
-
-                      header("Location: login.php");
-
-                } else {
-
-                            echo "ERROR AL REGISTRARTE. <br>";
-                  }
-
+                if ($_FILES['imagen']['size'] > (2048000)) {
+			            $valid = false;
+			            echo 'Oops!  Your file\'s size is to large.';
+		            }
+               
+                $file_extension = pathinfo($target_file, PATHINFO_EXTENSION); 
+                if ($file_extension!="jpg" && $file_extension!="jpeg" && $file_extension!="png" && $file_extension!="gif") {
+                  $valid = false;
+                  echo "Only JPG, JPEG, PNG & GIF files are allowed";
                 }
-            }
+                if ($valid) {
+                  
+                  move_uploaded_file($tmp_file, $target_file);
+      
+                $user = $_POST["user"];
+                $password = $_POST["password"];
+                $nombre = $_POST["nombre"];
+                $apellidos = $_POST["apellidos"];
+                $telefono = $_POST["telefono"];
 
-        ?>
+                $query= "select * from usuarios where user ='$user'";
+
+
+                if ($result = $connection->query($query)) {
+
+                    if ($result -> num_rows==1) {
+
+                        echo "EL USUARIO YA EXISTE";
+                    } else {
+
+                         $query = "INSERT INTO usuarios (nombre,apellidos,telefono,user,password,tipo,foto)
+                         VALUES ('$nombre','$apellidos','$telefono','$user',md5('$password'),'user','$target_file')";
+
+                        if ($connection->query($query)) {
+
+                              header("Location: login.php");
+
+                        } else {
+
+                                    echo "ERROR AL REGISTRARTE. <br>";
+                          }
+
+                        }
+                    }
+                }
+
+            ?>
       
 
 

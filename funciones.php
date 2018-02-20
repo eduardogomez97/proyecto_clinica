@@ -103,9 +103,9 @@ function navegador_user() {
 
                                     </ul>
                                     <ul class='nav navbar-nav navbar-right'>
-                                   <li><a href='mi_perfil.php?user=".$_SESSION['user']."'> ";
+                                   <li><a href='mi_perfil.php?user=".$_SESSION['user']."'> <button type='button'> ";
                         echo $_SESSION['user'];
-                            echo "</a></li>
+                            echo "</button></a></li>
                                     <li>
                                         <a href='logout.php'><button type='button'>Cerrar sesion</button></a>
                                     </li>

@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `clinica`.`usuarios` (
   `user` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `tipo` VARCHAR(5) NOT NULL,
+  `foto` VARCHAR(200),
   PRIMARY KEY (`id_usuario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
@@ -40,20 +41,20 @@ CREATE UNIQUE INDEX `id_usuario_UNIQUE` ON `clinica`.`usuarios` (`id_usuario` AS
 
 CREATE UNIQUE INDEX `usuario_UNIQUE` ON `clinica`.`usuarios` (`user` ASC);
 
-INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
-VALUES ('1', 'Pepe', 'Gallego', '123456789', 'admin', 'admin', 'admin');
+INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`, `foto`) 
+VALUES ('1', 'Pepe', 'Gallego', '123456789', 'admin', md5("admin"), 'admin', null);
 
-INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
-VALUES ('2', 'Eduardo', 'Gomez Paredes', '639866860', 'ryukedu', '2asirtriana', 'user');
+INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`, `foto`) 
+VALUES ('2', 'Eduardo', 'Gomez Paredes', '639866860', 'ryukedu', md5("123"), 'user', null);
 
-INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
-VALUES ('3', 'Felipe', 'Cabello Cañada', '654789321', 'SoyCaillou', '2asirtriana', 'user');
+INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`, `foto`) 
+VALUES ('3', 'Felipe', 'Cabello Cañada', '654789321', 'SoyCaillou', md5("123"), 'user', null);
 
-INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
-VALUES ('4', 'Maria Jesus', 'Dominguez Perez', '123456789', 'majedope', '2asirtriana', 'user');
+INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`, `foto`)  
+VALUES ('4', 'Maria Jesus', 'Dominguez Perez', '123456789', 'majedope', md5("123"), 'user', null);
 
-INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`) 
-VALUES ('5', 'Maria', 'Avila Fernandez', '987654321', 'mavife', '2asirtriana', 'user');
+INSERT INTO `clinica`.`usuarios` (`id_usuario`, `nombre`, `apellidos`, `telefono`, `user`, `password`, `tipo`, `foto`)  
+VALUES ('5', 'Maria', 'Avila Fernandez', '987654321', 'mavife', md5("123"), 'user', null);
 
 -- -----------------------------------------------------
 -- Table `clinica`.`citas`
