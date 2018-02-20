@@ -3,7 +3,7 @@
 function conectar() {
 
             $connection = new mysqli("127.0.0.1", "root", "Admin2015", "clinica",3306);
-            $connection->set_charset("uft8");
+            $connection->set_charset("utf8");
       
             if ($connection->connect_errno) {
               printf("Connection failed: %s\n", $connection->connect_error);
@@ -59,11 +59,11 @@ function navegador_admin() {
                    <ul class='nav navbar-nav navbar-right'>
                        
                         <li>
-                            <a href='mi_perfil.php'>
+                            
                                 <button type='button'>";
                         echo $_SESSION['user'];
                             echo "
-                            </a>
+                            
                         </li>
                         <li>
                              <a href='logout.php'><button type='button'>Cerrar sesion</button></a>
@@ -149,14 +149,14 @@ function barra_informe(){
                    <ul class='nav navbar-nav navbar-right'>
                        
                         <li>
-                            <a href='mi_perfil.php'>
+                            
                                 <button type='button'>";
                         echo $_SESSION['user'];
                             echo "
-                            </a>
+                            
                         </li>
                         <li>
-                             <a href='logout.php'><button type='button'>Cerrar sesion</button></a>
+                             <a href='../logout.php'><button type='button'>Cerrar sesion</button></a>
                         </li>
 
                     </ul>

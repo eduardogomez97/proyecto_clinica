@@ -119,6 +119,7 @@
                 </div>
               
           </div>
+          
           <div class="row">
           
               <div id="registrarse" class="col-md-12">

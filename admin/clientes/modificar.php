@@ -6,12 +6,11 @@
   } else {
       
     session_destroy();
-    header("Location: ../login.php");
+    header("Location: ../../login.php");
       
   }
 
 include_once '../../funciones.php';
-
  ?>
 <!DOCTYPE html>
 <html lang="es">

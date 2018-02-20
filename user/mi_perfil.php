@@ -87,13 +87,13 @@ include_once '../funciones.php';
               
               <?php
               
-                if (!isset($_foto)) {
+                if (!empty($foto)) {
+                    echo "<img id='imagen' src='../$foto' class='float-right' > <br>";
                     
-                    echo "<img id='imagen' src='../imagenes/usuario.png' class='rounded-circle float-right' > <br>";
                     
                 } else {
                     
-                    echo "<img id='imagen' src='$foto' class='rounded-circle float-right' > <br>";
+                    echo "<img id='imagen' src='../imagenes/usuario.png' class='float-right' > <br>";
                     
                 }
                 
@@ -155,7 +155,7 @@ include_once '../funciones.php';
                                         echo "<td>".$obj->hora."</td>";
                                         echo "<td>".$obj->motivo."</td>";
                                         echo "<td>".$obj->cantidad."</td>";
-                                        echo "<td><a href='../empleados/informe.php?id=".$obj->id_empleado."'>".$obj->apellidos.", ".$obj->nombre."</a></td>";
+                                        echo "<td>".$obj->apellidos.", ".$obj->nombre."</a></td>";
                                       echo "</tr>";
                                   }
 

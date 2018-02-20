@@ -60,6 +60,53 @@ include_once '../funciones.php';
           ?>
 
           <div class="row">
+              <form method="post">
+                  <div class="form-group">
+                      <input type="search" name="buscar">
+                      <input type="submit" value="Buscar">
+                  </div>
+              </form>
+          
+          </div>
+          <?php if(isset($_POST['buscar'])) {
+    
+                $busqueda = $_POST['buscar'];
+                $query= "SELECT * from usuarios where (nombre like '%$busqueda%' or apellidos like '%$busqueda%') and id_usuario > 1 ";
+                
+                echo "<div class='row'>";
+                    echo "Clientes encontrados: <br>";
+                            echo "<table class='table table-striped'>
+                                    <thead>
+                                        <tr>
+                                              <th>USUARIO </th>
+                                              <th>NOMBRE </th>
+                                              <th>APELLIDOS </th>
+                                              <th>TELEFONO </th>
+                                              <th>VER INFORME </th>
+                                        </tr>
+                                    </thead>";
+    
+                    if ($result = $connection->query($query)) {
+                     while($obj = $result->fetch_object()) {
+
+                         
+                            echo " <tr>";
+                                echo "<td>".$obj->user."</td>";
+                                echo "<td>".$obj->nombre."</td>";
+                                echo "<td>".$obj->apellidos."</td>";
+                                echo "<td>".$obj->telefono."</td>";
+                                echo "<td><a href=clientes/informe.php?id_usuario='".$obj->id_usuario."'>";
+                                    echo "<img src='images/eye.png' width='20' height='20'></a></td>";
+                            echo "</tr>";
+                     }
+
+                   
+                }
+                echo "</table>";
+
+            }
+          ?>
+          <div class="row">
                   
                   <table class="table table-striped">
                       
@@ -69,7 +116,7 @@ include_once '../funciones.php';
                           <th>NOMBRE </th>
                           <th>APELLIDOS </th>
                           <th>TELEFONO </th>
-                            <th>AÑADIR CLIENTE<a href="clientes/nuevo_cliente.php"><img src='images/mas.jpg' width='20' height='20'/></a></th>
+                          <th>AÑADIR CLIENTE<a href="clientes/nuevo_cliente.php"><img src='images/mas.jpg' width='20' height='20'/></a></th>
                         </tr>  
                     </thead>
 

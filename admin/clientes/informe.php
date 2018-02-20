@@ -6,7 +6,7 @@
   } else {
       
     session_destroy();
-    header("Location: ../login.php");
+    header("Location: ../../login.php");
       
   }
 
@@ -112,8 +112,8 @@ include_once '../../funciones.php';
                     <table class="table table-striped">
                       
                       <thead>
-                        <tr>
-
+                        <tr> 
+                          <th>NUMERO DE LA CITA </th>
                           <th>FECHA </th>
                           <th>HORA </th>
                           <th>MOTIVO </th>
@@ -135,6 +135,7 @@ include_once '../../funciones.php';
                                 while($obj = $result->fetch_object()) {
                                         echo "<tr>";
 
+                                        echo "<td>".$obj->numero."</a></td>";
                                         echo "<td>".$obj->fecha."</td>";
                                         echo "<td>".$obj->hora."</td>";
                                         echo "<td>".$obj->motivo."</td>";
