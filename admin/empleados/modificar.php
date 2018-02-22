@@ -102,9 +102,6 @@ include_once '../../funciones.php';
                 </fieldset>
               
                 <input type='hidden' name='id' value="<?php echo $id; ?>"> 
-                <input type='hidden' name='tipo' value="<?php echo $tipo; ?>"> 
-                <input type='hidden' name='pass' value="<?php echo $pass; ?>"> 
-                <input type='hidden' name='user' value="<?php echo $user; ?>"> 
               
                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#flipFlop">Modificar</button>
               

@@ -139,7 +139,9 @@ include_once '../../funciones.php';
                                         echo "<td>".$obj->fecha."</td>";
                                         echo "<td>".$obj->hora."</td>";
                                         echo "<td>".$obj->motivo."</td>";
-                                        echo "<td>".$obj->cantidad."</td>";
+                                    
+                                        echo "<td>".$obj->cantidad."€</td>";
+                                    
                                         echo "<td><a href='../empleados/informe.php?id=".$obj->id_empleado."'>".$obj->apellidos.", ".$obj->nombre."</a></td>";
                                       echo "</tr>";
                                   }

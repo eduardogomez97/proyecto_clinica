@@ -41,6 +41,12 @@ include_once '../funciones.php';
                 
         }
         
+        .text-center {
+            
+            margin-top: 75px;
+            
+        }
+        
     </style> 
       
   </head>
@@ -58,6 +64,9 @@ include_once '../funciones.php';
           titulo();
           navegador_admin()
           ?>
+          
+          <div class="text-center"><h1>¡Bienvenido a la zona administrador!</h1></div>
+          
           
           
                                 

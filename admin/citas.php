@@ -78,8 +78,9 @@ include_once '../funciones.php';
 
                       <?php 
                     
-                            $query="select c.*, u.* from citas c 
-                                    join usuarios u on c.id_usuario = u.id_usuario";
+                            $query="select c.*, u.*, f.* from citas c 
+                                    join usuarios u on c.id_usuario = u.id_usuario
+                                    join facturas f where c.numero = f.numero order by fecha desc";
                       
                             if ($result = $connection->query($query)) {
 
@@ -91,7 +92,7 @@ include_once '../funciones.php';
                                         echo "<td>".$obj->motivo."</td>";
                                         echo "<td><a href='clientes/informe.php?id_usuario=".$obj->id_usuario."'>".$obj->apellidos.", ".$obj->nombre."</td></a>";
                                       
-                                        echo "<td>
+                                        echo "<td><a href='facturas/modificar.php?id_factura=".$obj->id_factura."'>  Modificar</a>   -- 
                                             <a href='citas/borrar.php?numero=".$obj->numero."'><img src='images/croos.png' width='20' height='20'/></a>
 
                                         </td>";

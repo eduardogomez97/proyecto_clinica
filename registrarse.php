@@ -82,7 +82,7 @@ include_once 'funciones.php';
                             <span>Telefono</span>
                             <span><input name="telefono" required></span><br>
                             
-                            Foto de perfil: <input name="image" type="file" />
+                            Foto de perfil: <input class="form-control" name="image" type="file" />
                             
                             <p><center><input type="submit" value="Registrarse"><a href="login.php">Volver</a></center></p> 
                             

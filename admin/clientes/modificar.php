@@ -85,19 +85,19 @@ include_once '../../funciones.php';
           <form method="post">
               
                 <fieldset class="form-group">
-                <label for="first_name">Nombre</label>
-                <input type='text' class='form-control' id='first_name' name='nombre' value="<?php echo $nombre; ?>">
+                <label >Nombre</label>
+                <input type='text' class='form-control' name='nombre' value="<?php echo $nombre; ?>">
                     
                 </fieldset>
               
                 <fieldset class="form-group">
-                <label for="last_name">Apellidos</label>
-                <input type='text' class='form-control' id='first_name' name='apellidos' value="<?php echo $apellidos; ?>">
+                <label >Apellidos</label>
+                <input type='text' class='form-control' name='apellidos' value="<?php echo $apellidos; ?>">
                 </fieldset>
               
                 <fieldset class="form-group">
-                <label for="last_name">Telefono</label>
-                <input type='text' class='form-control' id='first_name' name='telefono' value="<?php echo $telefono; ?>">    
+                <label >Telefono</label>
+                <input type='text' class='form-control' name='telefono' value="<?php echo $telefono; ?>">    
                 </fieldset>
               
                 <input type='hidden' name='id' value="<?php echo $id; ?>"> 

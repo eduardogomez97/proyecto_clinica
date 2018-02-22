@@ -44,7 +44,8 @@ include_once '../funciones.php';
         }
         #imagen {
             
-            width:15%;
+            width:50%;
+        
         }
         
     </style> 
@@ -82,51 +83,64 @@ include_once '../funciones.php';
           titulo();
           navegador_user();
           ?>
-          
-          <form action="/html/tags/html_form_tag_action.cfm">
-              
-              <?php
-              
-                if (!empty($foto)) {
-                    echo "<img id='imagen' src='../$foto' class='float-right' > <br>";
-                    
-                    
-                } else {
-                    
-                    echo "<img id='imagen' src='../imagenes/usuario.png' class='float-right' > <br>";
-                    
-                }
-                
-              
-              ?>
 
-                
-              
-              <fieldset class="form-group">
+          
+              <div class="row">
                   
-                    
-                    <label for="first_name">Nombre: </label>
-                    <label for="first_name"><?php echo $nombre; ?> </label>  
-              </fieldset>
-              
-              <fieldset class="form-group">
-                    <label for="last_name">Apellidos: </label>
-                    <label for="first_name"><?php echo $apellidos; ?> </label>  
-              </fieldset>
-              
-              <fieldset class="form-group">
-                    <label for="last_name">Telefono</label>
-                    <label for="first_name"><?php echo $telefono; ?> </label>  
-              </fieldset>
-              
-              <fieldset class="form-group">
-                    
-                  <label for="last_name">Lista de todas sus citas:</label>
-                    
-                  <div class="row">
                   
-                    <table class="table table-striped">
-                      
+                  <div class="col-md-8">
+                      <form method="post">
+                      <fieldset class="form-group">
+                          <label>Nombre: </label>
+                          <input class='form-control' type='text' name='nombre' value="<?php echo $nombre; ?>">
+                      </fieldset>
+              
+                      <fieldset class="form-group">
+                            <label>Apellidos: </label>
+                            <input class='form-control' type='text' name='nombre' value="<?php echo $apellidos; ?>">    
+                      </fieldset>
+              
+                      <fieldset class="form-group">
+                            <label>Telefono</label>
+                            <input class='form-control' type='text' name='nombre' value="<?php echo $telefono; ?>">    
+                      </fieldset>
+                          <button type="submit" class="btn btn-primary">Modificar tu perfil</button>
+                  </form>
+                  </div>
+                  
+                  
+                  <div class="col-md-4">
+                      <form method="post">
+                      <?php
+
+                        if (!empty($foto)) {
+
+                            echo "<center><img id='imagen' src='../$foto'></center> <br>";
+                            echo "<input class='form-control' name='image' type='file'/> <br>";
+                            echo "<button type='submit' class='btn btn-primary'>Modificar tu foto</button>";
+
+
+                        } else {
+
+                            echo "<center><img id='imagen' src='../imagenes/usuario.png' ></center> <br>";
+                            echo "<input class='form-control' name='image' type='file' /><br>";
+                            echo "<button type='submit' class='btn btn-primary'>Modificar tu foto</button>";
+
+                        }
+
+
+                      ?>
+                          
+                        </form>
+                  </div>
+                  
+                  
+              </div>
+               
+          
+              <div class="row">
+                  <h4>Lista de todas sus citas:</h4>
+                  <table class="table table-striped">
                       <thead>
                         <tr>
 
@@ -167,13 +181,8 @@ include_once '../funciones.php';
 
                   
                   </table>
-                  
-              </div>  
-              </fieldset>
-            
-        </form>
-          
-             
-      </div>
+              </div>
+
+        </div>
     </body>
 </html> 

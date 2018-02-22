@@ -191,7 +191,7 @@ function select_clie() {
     }
 }
 
-function select_emple(){
+function select_emple($id_emple){
     
     $connection=conectar();
     $query="select * from empleados order by apellidos";
@@ -199,6 +199,12 @@ function select_emple(){
     if ($result = $connection->query($query)) {
 
                                 while($obj = $result->fetch_object()) {
+                                    
+                                    if ($obj->id_empleado == $id_emple) {
+                                        
+                                        echo "<option value=".$obj->id_empleado." selected>".$obj->apellidos.", ".$obj->nombre."</option>";
+                                        
+                                    } else
                                         echo "<option value=".$obj->id_empleado.">".$obj->apellidos.", ".$obj->nombre."</option>";
                                   }
  
