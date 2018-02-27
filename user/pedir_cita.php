@@ -87,26 +87,7 @@ include_once '../funciones.php';
                     </div>
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row py-4 d-flex align-items-center">
- 
-                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                            <h6 class="mb-0 white-text">¡Atento a nuestras redes sociales!</h6>
-                        </div>
-                        
-                        
-                        <div class="col-md-6 col-lg-7 text-center text-md-right">
-                            <!--Facebook-->
-                            <a class="icons-sm fb-ic ml-0"><i class="fa fa-facebook white-text mr-lg-4"> Facebook </i></a>
-                            <!--Twitter-->
-                            <a class="icons-sm tw-ic"><i class="fa fa-twitter white-text mr-lg-4"> Twitter </i></a>
-                            <!--Instagram-->
-                            <a class="icons-sm ins-ic"><i class="fa fa-instagram white-text mr-lg-4"> Instagram</i></a>
-                        </div>
-                        
-
-                    </div>
-                </div> 
+                
             </footer>
           </div>
       </div>

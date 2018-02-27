@@ -62,7 +62,7 @@ include_once '../funciones.php';
           <div class="row">
               <form method="post">
                   <div class="form-group">
-                      <input type="search" name="buscar">
+                      <input type="search" name="buscar" required>
                       <input type="submit" value="Buscar">
                   </div>
               </form>
@@ -95,14 +95,23 @@ include_once '../funciones.php';
                                 echo "<td>".$obj->nombre."</td>";
                                 echo "<td>".$obj->apellidos."</td>";
                                 echo "<td>".$obj->telefono."</td>";
-                                echo "<td><a href=clientes/informe.php?id_usuario='".$obj->id_usuario."'>";
-                                    echo "<img src='images/eye.png' width='20' height='20'></a></td>";
+                                echo "<td> 
+
+                                            <a href='clientes/informe.php?id_usuario=".$obj->id_usuario."'><img src='images/eye.png' width='20' height='20' /></a>
+                                            <a href='clientes/modificar.php?id_usuario=".$obj->id_usuario."'><img src='images/person.png'width='20' height='20' /></a>
+                                            
+                                            <a href='clientes/borrar.php?id_usuario=".$obj->id_usuario."'><img src='images/croos.png' width='20' height='20'/></a>
+
+                                        </td>";
+                         
+                                
                             echo "</tr>";
                      }
 
                    
                 }
                 echo "</table>";
+                echo "</div>";    
 
             }
           ?>
