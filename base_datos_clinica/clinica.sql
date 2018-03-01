@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `clinica`.`citas` (
   CONSTRAINT
     FOREIGN KEY (`id_usuario`)
     REFERENCES `clinica`.`usuarios` (`id_usuario`)
-    ON DELETE CASCADE
+    ON DELETE SET NULL
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `clinica`.`atender` (
   CONSTRAINT 
     FOREIGN KEY (`id_empleado`)
     REFERENCES `clinica`.`empleados` (`id_empleado`)
-    ON DELETE CASCADE
+    ON DELETE SET NULL
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
