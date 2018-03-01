@@ -62,59 +62,6 @@ include_once '../funciones.php';
           ?>
 
           <div class="row">
-              <form method="post">
-                  <div class="form-group">
-                      <input type="date" name="fecha" required>
-                      <input type="submit" value="Buscar">
-                  </div>
-              </form>
-          
-          </div>
-          <?php if(isset($_POST['buscar'])) {
-    
-                $busqueda = $_POST['buscar'];
-                $query= "SELECT * from citas where fecha = $busqueda";
-                
-                echo "<div class='row'>";
-                    echo "Citas encontradas: <br>";
-                            echo "<table class='table table-striped'>
-                                    <thead>
-                                        <tr>
-                                              <th>NUMERO DE LA CITA </th>
-                                              <th>FECHA </th>
-                                              <th>HORA </th>
-                                              <th>MOTIVO</th>
-                                              <th>CLIENTE</th>
-                                              <th>VER INFORME</th>
-                                        </tr>
-                                    </thead>";
-    
-                    if ($result = $connection->query($query)) {
-                     while($obj = $result->fetch_object()) {
-
-                         
-                            echo " <tr>";
-                                echo "<td>".$obj->numero."</td>";
-                                echo "<td>".$obj->fecha."</td>";
-                                echo "<td>".$obj->hora."</td>";
-                                echo "<td>".$obj->motivo."</td>";
-                                echo "<td><a href=clientes/informe.php?id_usuario='".$obj->id_usuario."'>";
-                                    echo "<img src='images/eye.png' width='20' height='20'></a></td>";
-                                echo "<td><a href='facturas/modificar.php?id_factura=".$obj->id_factura."'>  Modificar</a>   -- 
-                                            <a href='citas/borrar.php?numero=".$obj->numero."'><img src='images/croos.png' width='20' height='20'/></a>
-
-                                        </td>";
-                            echo "</tr>";
-                     }
-
-                   
-                }
-                echo "</table>";
-                echo "</div>";    
-
-            }
-          ?>
-          <div class="row">
                   
                   <table class="table table-striped">
                       <thead>

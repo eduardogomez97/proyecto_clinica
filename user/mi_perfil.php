@@ -165,8 +165,10 @@ include_once '../funciones.php';
                       ?>
                           
                         </form>
+                      
+                      <?php  if(isset($_POST['foto'])): ?>
                       <?php 
-                      if(isset($_POST['foto'])) {
+                     
 
                         $tmp_file = $_FILES['image']['tmp_name'];
 
@@ -199,7 +201,6 @@ include_once '../funciones.php';
                             
                             if ($connection->query($query)) {
                                 
-                                header('Location: '.$_SERVER['PHP_SELF']);
                               header("Location: index.php");
                                 
 
@@ -208,60 +209,12 @@ include_once '../funciones.php';
                                     echo "ERROR. <br>";
                           }                            
                         }
-                      }
                       ?>
-
+                      <?php endif; ?>
                           </div>
                   
                   
               </div>
-               
-          
-              <div class="row">
-                  <h4>Lista de todas sus citas:</h4>
-                  <table class="table table-striped">
-                      <thead>
-                        <tr>
-
-                          <th>FECHA </th>
-                          <th>HORA </th>
-                          <th>MOTIVO </th>
-                          <th>TOTAL A PAGAR(€) </th>
-                          <th>RESPONSABLE QUE LE HA ATENDIDO</th>
-                        </tr>  
-                      </thead>
-
-                      <?php 
-                    
-                            $query="SELECT c.*, f.*, e.id_empleado, e.nombre, e.apellidos from citas c
-                                        join atender a on c.numero = a.numero_cita 
-                                        join empleados e on a.id_empleado = e.id_empleado
-                                        join facturas f on c.numero = f.numero
-                                        where c.id_usuario = '".$id."'";
-
-                            if ($result = $connection->query($query)) {
-
-                                while($obj = $result->fetch_object()) {
-                                        echo "<tr>";
-
-                                        echo "<td>".$obj->fecha."</td>";
-                                        echo "<td>".$obj->hora."</td>";
-                                        echo "<td>".$obj->motivo."</td>";
-                                        echo "<td>".$obj->cantidad."</td>";
-                                        echo "<td>".$obj->apellidos.", ".$obj->nombre."</a></td>";
-                                      echo "</tr>";
-                                  }
-
-                          $result->close();
-                          unset($obj);
-                          unset($connection);
-                      } 
-                    ?>
-
-                  
-                  </table>
-              </div>
-
         </div>
     </body>
 </html> 
