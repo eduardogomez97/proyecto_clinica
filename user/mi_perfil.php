@@ -148,7 +148,7 @@ include_once '../funciones.php';
 
                         if (!empty($foto)) {
 
-                            echo "<center><img id='imagen' src='$foto'></center> <br>";
+                            echo "<center><img id='imagen' src='../$foto'></center> <br>";
                             echo "<input class='form-control' name='image' type='file'/> <br>";
                             echo "<input type='submit' name='foto'  class='btn btn-primary' value='Modificar tu foto'>";
 
